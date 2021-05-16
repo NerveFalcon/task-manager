@@ -1,0 +1,202 @@
+/* Tags */
+
+html {
+    height: 100%;
+}
+
+body {
+    min-height: 100%;
+    margin: 0px;
+    padding: 0px;
+    background-color: black;
+    color: white;
+}
+
+header {
+    background-color: gray;
+    width: 100%;
+    height: 3rem;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 50;
+}
+
+main {
+    width: 60%;
+    margin: 0 auto;
+    padding-top: 3.5rem;
+}
+
+a {
+    color: inherit;
+    text-decoration: inherit;
+}
+
+a:hover {
+    color: #427a8e !important;
+}
+
+a *:hover {
+    color: #427a8e !important;
+}
+
+fromphp {
+    font-style: italic;
+}
+
+input[type="text"],
+input[type="password"] {
+    border: 1px;
+    border-radius: 3px;
+    padding: 6px 8px;
+}
+
+textarea {
+    resize: none;
+}
+
+
+/* Classes */
+
+.flex-container-row {
+    text-align: center;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+}
+
+.flex-container-column {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.flex-between {
+    justify-content: space-between;
+}
+
+.flex-around {
+    justify-content: space-around;
+}
+
+.flex-center {
+    justify-content: center;
+}
+
+.flex-item-row {
+    margin: auto;
+    flex-grow: 1;
+}
+
+.flex-item-row-first {
+    text-align: left;
+    margin-left: 2%;
+}
+
+.flex-item-row-last {
+    text-align: right;
+    margin-right: 2%;
+}
+
+.flex-grow2 {
+    flex-grow: 2;
+}
+
+.flex-ai-center {
+    align-items: center;
+}
+
+.flex-ai-end {
+    align-items: flex-end;
+}
+
+.flex-ai-start {
+    align-items: flex-start;
+}
+
+.Tright {
+    text-align: right;
+}
+
+.Tcenter {
+    text-align: center;
+}
+
+.Tleft {
+    text-align: left;
+}
+
+.font64 {
+    font-size: 64pt;
+}
+
+.pg-btn {
+    padding: 30px 10%;
+}
+
+.currentPage {
+    color: #bfc7ca;
+}
+
+.hidden {
+    display: none;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.border-box {
+    box-sizing: border-box;
+}
+
+.width-100 {
+    width: 100%;
+}
+
+.width-80 {
+    width: 80%;
+}
+
+.width-50 {
+    width: 50%;
+}
+
+
+/* colors */
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+
+.brown {
+    color: brown;
+}
+
+.gray {
+    color: gray;
+}
+
+.yellow {
+    color: yellow;
+}
+
+
+/* IDs */
+
+
+/* Other */
+
+
+/* 
+.grid {
+    display: grid;
+    gap: 1rem;
+    grid: "main" "side" 1fr / 2fr 1fr;
+    place-items: stretch;
+    place-content: stretch;
+} */
