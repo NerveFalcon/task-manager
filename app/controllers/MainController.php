@@ -2,9 +2,17 @@
 class MainController extends Controller
 {
 
-	public function ActionIndex()
+	public function ActionChat()
 	{
-		$this->view->Generate('main/mainView.php');
+		$messages = array();
+		for ($i = 0; $i < 5; $i++)
+		{
+			$messages[$i]['author'] = "author";
+			$messages[$i]['date'] = "date";
+			$messages[$i]['text'] = "text";
+		}
+
+		$this->view->Generate('main/mainView.php', $messages);
 		return true;
 	}
 

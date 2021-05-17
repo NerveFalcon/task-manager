@@ -60,10 +60,9 @@ textarea {
 /* Classes */
 
 .flex-container-row {
-    text-align: center;
     display: flex;
+    text-align: center;
     flex-flow: row nowrap;
-    align-items: center;
 }
 
 .flex-container-column {
@@ -81,6 +80,14 @@ textarea {
 
 .flex-center {
     justify-content: center;
+}
+
+.flex-start {
+    justify-content: flex-start;
+}
+
+.flex-end {
+    justify-content: flex-end;
 }
 
 .flex-item-row {
@@ -160,6 +167,10 @@ textarea {
 
 .width-50 {
     width: 50%;
+}
+
+.width-min {
+    width: min-content;
 }
 
 

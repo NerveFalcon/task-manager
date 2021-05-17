@@ -15,19 +15,8 @@
 
 <body>
 	<header class="flex-container-row flex-between">
-		<div class="logo flex-item-row flex-item-row-first">
-		</div>
-		<div class="flex-item-row flex-grow2 flex-container-row flex-center">
-			<a class="flex-item-row" href="/">Чат</a>
-			<a class="flex-item-row" href="/outTasks">Исходящие задачи</a>
-			<a class="flex-item-row" href="/inTasks">Входящие задачи</a>
-			<!-- < ?php if (isset($_SESSION['user']) && $_SESSION['user']->isAdmin()) : ?> -->
-				<a class="flex-item-row" href="/user">Список пользователей</a>
-				<a class="flex-item-row" href="/position">Список должностей</a>
-			<!-- < ?php endif; ?> -->
-		</div>
-		<div class="flex-item-row flex-item-row-last">
-			<a href="/auth/logout" class="auth-btn">Выход</a>
+		<div class="flex-item-row">
+		<h1>Добро пожаловать</h1>
 		</div>
 	</header>
 	<div id="wrapper" class="flex-container-column flex-between">

@@ -1,3 +1,14 @@
 <section id="main" class="Tcenter">
-	<h1>Приветствую вас</h1>
+	<div>
+		<?php foreach ($params as $message) : ?>
+			<div class="message">
+				<div><?php echo "$message[author] $message[date]"; ?></div>
+				<p><?php echo $message['text']; ?></p>
+			</div>
+		<?php endforeach; ?>
+	</div>
+	<form action="" method="post">
+		<input type="text">
+		<input type="submit" value="Отправить">
+	</form>
 </section>

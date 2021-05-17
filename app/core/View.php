@@ -1,9 +1,20 @@
 <?php
 class View
 {
-	public function Generate($contentView, $params = null, $templateView = "templateView.php")
+	/**
+	 * Генерация представления
+	 * @param string $contentView Адрес создержимого страницы
+	 * @param array|null $params Данные
+	 * @param string $templateView Адрес шаблона
+	 */
+	public function Generate(string $contentView, array $params = null, string $templateView = "templateView.php")
 	{
 		include "app/views/" . $templateView;
+	}
+
+	public static function Filter()
+	{
+		
 	}
 
 	/**
@@ -60,7 +71,7 @@ class View
 	 * @param int $currentPage Номер текущей страницы
 	 * @return string html-код вида { a.flex-item-row > fromphp > n }
 	 */
-	public static function buildPageBtns(int $firstPage, int $countPage, int $currentPage, string $url)
+	private static function buildPageBtns(int $firstPage, int $countPage, int $currentPage, string $url)
 	{
 		$buttons = "";
 		for ($i = $firstPage; $i <= $countPage; $i++)
@@ -77,13 +88,13 @@ class View
 	 * @param int $currentPage Номер текущей страницы
 	 * @return string html-код
 	 */
-	public static function buildPageBtn(int $buildPage, string $url, int $currentPage = null)
+	private static function buildPageBtn(int $buildPage, string $url, int $currentPage = null)
 	{
 		$class = '';
 		if ($currentPage == $buildPage)
 		{
 			$class .= 'currentPage';
 		}
-		return "<a href='$url/$buildPage' class='flex-item-row'><fromphp class='$class'>$buildPage</fromphp></a>";
+		return "<a href='/$url/$buildPage' class='flex-item-row'><fromphp class='$class'>$buildPage</fromphp></a>";
 	}
 }
