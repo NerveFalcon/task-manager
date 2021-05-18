@@ -33,10 +33,7 @@
 	<div id="wrapper" class="flex-container-column flex-between">
 		<main>
 			<div id="content">
-				<div class="box">
 					<?php include 'app/views/' . $contentView; ?>
-				</div>
-				<br class="clearfix">
 			</div>
 		</main>
 		<footer>

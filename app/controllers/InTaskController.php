@@ -1,6 +1,10 @@
 <?php
 class InTaskController extends Controller
 {
+	public function __construct() {
+		$this->model = new InTaskModel();
+	}
+
 	public function ActionList(int $page = 1)
 	{
 		$countPages = 12;

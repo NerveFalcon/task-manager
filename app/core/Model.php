@@ -26,7 +26,7 @@ class Model
 
 	public static function SqlConnect()
 	{
-		$sql = new mysqli('localhost', 'falcon', 'Data$aur0na', 'forum');
+		$sql = new mysqli('localhost', 'root', 'root', 'college');
 		$sql->set_charset('utf-8');
 		return $sql;
 	}

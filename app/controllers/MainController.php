@@ -9,7 +9,7 @@ class MainController extends Controller
 		{
 			$messages[$i]['author'] = "author";
 			$messages[$i]['date'] = "date";
-			$messages[$i]['text'] = "text";
+			$messages[$i]['text'] = "text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text ";
 		}
 
 		$this->view->Generate('main/mainView.php', $messages);

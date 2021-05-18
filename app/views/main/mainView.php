@@ -2,7 +2,7 @@
 	<div>
 		<?php foreach ($params as $message) : ?>
 			<div class="message">
-				<div><?php echo "$message[author] $message[date]"; ?></div>
+				<div class="Tleft"><?php echo "$message[author] $message[date]"; ?></div>
 				<p><?php echo $message['text']; ?></p>
 			</div>
 		<?php endforeach; ?>
