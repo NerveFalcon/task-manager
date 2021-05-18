@@ -1,7 +1,8 @@
 <?php
 class InTaskController extends Controller
 {
-	public function __construct() {
+	public function __construct()
+	{
 		$this->model = new InTaskModel();
 	}
 
@@ -9,20 +10,20 @@ class InTaskController extends Controller
 	{
 		$countPages = 12;
 		$pages = [$countPages, $page];
-		$tasks = array();
-		for ($i = 1; $i < 5; $i++)
+		$tasks = $this->model->GetInTaskList();
+		foreach ($tasks as $task)
 		{
-			$tasks[$i]['id'] = $i;
-			$tasks[$i]['title'] = "title";
-			$tasks[$i]['desc'] = "description";
-			$tasks[$i]['from'] = "from";
-			$tasks[$i]['to'] = "to";
-			$tasks[$i]['deadline'] = "deadline";
-			$tasks[$i]['status'] = "status";
-			$tasks[$i]['OtherStatus'] = "На коррекцию";
-			$tasks[$i]['DoneStatus'] = "Принять";
-			$tasks[$i]['attachment'] = "url";
-			$tasks[$i]['type'] = "in";
+			// $tasks[$i]['id'] = $i;
+			// $tasks[$i]['title'] = "title";
+			// $tasks[$i]['desc'] = "description";
+			// $tasks[$i]['from'] = "from";
+			// $tasks[$i]['deadline'] = "deadline";
+			// $tasks[$i]['status'] = "status";
+			// $tasks[$i]['attachment'] = "url";
+
+			$task['type'] = "in";
+			$task['OtherStatus'] = "На коррекцию";
+			$task['DoneStatus'] = "Принять";
 		}
 
 		$this->view->Generate('task/listView.php', [$pages, $tasks]);
@@ -31,12 +32,10 @@ class InTaskController extends Controller
 
 	public function ActionTask(int $id)
 	{
-		if (empty($id))
-		{
+		if (empty($id)) {
 			return false;
 		}
-		if (!empty($_POST))
-		{
+		if (!empty($_POST)) {
 		}
 		$task = array();
 		$task['id'] = $id;

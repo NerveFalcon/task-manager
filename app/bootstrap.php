@@ -11,5 +11,6 @@ session_start();
 // {
 // 	header('Location: /auth');
 // }
+$_SESSION['id'] = 1;
 
 Route::start();
