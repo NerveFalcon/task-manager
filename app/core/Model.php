@@ -36,7 +36,7 @@ class Model
 		$this->db = $this->SqlConnect();
 		$keys = implode(", ", array_keys($input));
 		$val = "'" . implode("', '", $input) . "'";
-		// return "insert into $table($keys) values ($val)";
+		//return "insert into $table($keys) values ($val)";
 		$this->db->query("insert into $table($keys) values ($val)");
 		return $this->db->insert_id;
 	}

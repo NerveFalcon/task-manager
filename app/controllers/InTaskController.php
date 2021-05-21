@@ -8,26 +8,28 @@ class InTaskController extends Controller
 
 	public function ActionList(int $page = 1)
 	{
-		$countPages = 12;
-		$pages = [$countPages, $page];
-		$tasks = $this->model->GetInTaskList();
-		foreach ($tasks as $task)
-		{
-			// $tasks[$i]['id'] = $i;
-			// $tasks[$i]['title'] = "title";
-			// $tasks[$i]['desc'] = "description";
-			// $tasks[$i]['from'] = "from";
-			// $tasks[$i]['deadline'] = "deadline";
-			// $tasks[$i]['status'] = "status";
-			// $tasks[$i]['attachment'] = "url";
-
-			$task['type'] = "in";
-			$task['OtherStatus'] = "На коррекцию";
-			$task['DoneStatus'] = "Принять";
-		}
-
-		$this->view->Generate('task/listView.php', [$pages, $tasks]);
+		$countPages = $this->model->GetCountInTasks();
+		echo $countPages;
 		return true;
+		// $pages = [$countPages, $page];
+		// $tasks = $this->model->GetListInTasks($page);
+		// foreach ($tasks as $task)
+		// {
+		// 	// $tasks[$i]['id'] = $i;
+		// 	// $tasks[$i]['title'] = "title";
+		// 	// $tasks[$i]['text'] = "description";
+		// 	// $tasks[$i]['id_from'] = "from";
+		// 	// $tasks[$i]['deadline'] = "deadline";
+		// 	// $tasks[$i]['id_status'] = "status";
+		// 	// $tasks[$i]['file_way'] = "url";
+
+		// 	$task['type'] = "in";
+		// 	$task['OtherStatus'] = "На коррекцию";
+		// 	$task['DoneStatus'] = "Принять";
+		// }
+
+		// $this->view->Generate('task/listView.php', [$pages, $tasks]);
+		// return true;
 	}
 
 	public function ActionTask(int $id)
