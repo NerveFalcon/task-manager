@@ -6,7 +6,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<?php if (!ini_get("display_errors")) : ?>
 		<link rel="stylesheet" href="/static/css/style.css">
-		<link rel="stylesheet" href="/static/css/auth.css">
 	<?php endif; ?>
 	<title>My forum</title>
 	<script defer src="/static/js/jQuery.js"></script>
@@ -14,18 +13,16 @@
 </head>
 
 <body>
-	<header class="flex-container-row flex-between bg-gray">
-		<div class="logo flex-item flex-item-row-first">
-		</div>
-		<div class="flex-item flex-grow2 flex-container-row flex-center">
+	<header class="flex-container-row flex-between">
+		<div class="flex-item flex-grow flex-item-row-first">.</div>
+		<div class="flex-item flex-grow flex-container-row flex-center">
 			<a class="flex-item" href="/">Чат</a>
-			<a class="flex-item" href="/outTasks">Исходящие задачи</a>
 			<a class="flex-item" href="/inTasks">Входящие задачи</a>
-			<!-- < ?php if (isset($_SESSION['user']) && $_SESSION['user']->isAdmin()) : ?> -->
+			<?php if (isset($_SESSION['user']) && ISADMIN) : ?>
 			<a class="flex-item" href="/user">Список пользователей</a>
-			<!-- < ?php endif; ?> -->
+			<?php endif; ?>
 		</div>
-		<div class="flex-item flex-item-row-last">
+		<div class="flex-item flex-grow flex-item-row-last">
 			<a href="/auth/logout" class="auth-btn">Выход</a>
 		</div>
 	</header>

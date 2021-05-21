@@ -19,9 +19,9 @@
 		<main class="flex-item flex-grow">
 			<?php include 'app/views/' . $contentView; ?>
 		</main>
-		<div id="copyright" class="flex-item gray Tright">
-			created by NerveFalcon
-		</div>
+	</div>
+	<div id="copyright" class="gray">
+		created by NerveFalcon
 	</div>
 </body>
 

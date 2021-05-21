@@ -105,6 +105,6 @@ class View
 		{
 			$class .= 'currentPage';
 		}
-		return "<a href='/$url/$buildPage' class='flex-item-row'><fromphp class='$class'>$buildPage</fromphp></a>";
+		return "<a href='/$url/$buildPage' class='flex-item'><fromphp class='$class'>$buildPage</fromphp></a>";
 	}
 }

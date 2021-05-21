@@ -17,6 +17,7 @@ body {
     background-size: 100% auto;
     background-position: 0 30%;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     color: white;
 }
 
@@ -32,7 +33,7 @@ header {
 main {
     width: 60%;
     margin: 0 auto;
-    padding-top: 10vh;
+    padding-top: 3.5rem;
 }
 
 a {
@@ -70,6 +71,11 @@ textarea {
 
 fieldset {
     padding: 5px;
+}
+
+section {
+    background-color: white;
+    color: black;
 }
 
 
@@ -173,7 +179,8 @@ fieldset {
 }
 
 .currentPage {
-    color: #bfc7ca;
+    color: #2419B2;
+    font-weight: bold;
 }
 
 .hidden {
@@ -202,6 +209,12 @@ fieldset {
 
 .width-min {
     width: min-content;
+}
+
+.button {
+    background-color: #C4C4C4;
+    margin: 5px;
+    padding: 5px;
 }
 
 
@@ -255,7 +268,10 @@ fieldset {
 }
 
 #copyright {
+    position: fixed;
     margin: 0;
+    right: 0;
+    bottom: 0;
 }
 
 
@@ -289,6 +305,96 @@ fieldset {
 
 .auth input[type="submit"]:hover {
     background-color: #F5FFFA30;
+}
+
+.chat {
+    border: 1px solid #FF9900;
+    background-color: white;
+    color: black;
+}
+
+.chat>* {
+    border: 1px solid #FF9900;
+}
+
+.chat .header {
+    padding: 2vh;
+}
+
+.chat .main {
+    height: 70vh;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.chat .message {
+    width: 25vw;
+    border: 1px solid #FF9900;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 2vh;
+}
+
+.chat .mymessage {
+    margin-left: 30vw;
+}
+
+.chat .author {
+    color: #2419B2;
+}
+
+.chat fieldset {
+    padding: 0;
+    border: 0;
+    position: relative;
+}
+
+.chat input[type="text"] {
+    margin: 0;
+    padding: 10px 10px;
+    border: 1px solid #FF9900;
+    outline: none;
+    background-color: white;
+    width: 85%;
+}
+
+.chat input[type="submit"] {
+    margin: 0;
+    padding: 10px 10px;
+    outline: none;
+    border: 1px solid #FF9900;
+    background-color: white;
+    position: absolute;
+    right: 0;
+    width: 13%;
+}
+
+.tasks .links>* {
+    background-color: black;
+    margin: 20px;
+    padding: 15px 50px;
+    border-radius: 50%;
+    color: white;
+}
+
+.tasks .links .selected {
+    background-color: #2419B2;
+}
+
+.tasks .task {
+    border: 1px solid #FF9900;
+    border-radius: 5px;
+    margin: 5px;
+}
+
+.task .top {
+    margin: 20px 15px;
+}
+
+.task .desc {
+    margin: 0 15px;
+    padding: 0 2%;
+    width: 80%;
 }
 
 
