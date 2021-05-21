@@ -1,19 +1,26 @@
 /* Tags */
 
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+}
+
 html {
     height: 100%;
 }
 
 body {
-    min-height: 100%;
-    margin: 0px;
-    padding: 0px;
-    background-color: black;
+    height: 100%;
+    background-image: url("/static/img/BackGround.png");
+    background-size: 100% auto;
+    background-position: 0 30%;
+    background-repeat: no-repeat;
     color: white;
 }
 
 header {
-    background-color: gray;
     width: 100%;
     height: 3rem;
     position: fixed;
@@ -25,7 +32,7 @@ header {
 main {
     width: 60%;
     margin: 0 auto;
-    padding-top: 3.5rem;
+    padding-top: 10vh;
 }
 
 a {
@@ -45,7 +52,12 @@ fromphp {
     font-style: italic;
 }
 
+input {
+    margin: 5px 0;
+}
+
 input[type="text"],
+input[type="email"],
 input[type="password"] {
     border: 1px;
     border-radius: 3px;
@@ -54,6 +66,10 @@ input[type="password"] {
 
 textarea {
     resize: none;
+}
+
+fieldset {
+    padding: 5px;
 }
 
 
@@ -90,9 +106,8 @@ textarea {
     justify-content: flex-end;
 }
 
-.flex-item-row {
+.flex-item {
     margin: auto;
-    flex-grow: 1;
 }
 
 .flex-item-row-first {
@@ -103,6 +118,10 @@ textarea {
 .flex-item-row-last {
     text-align: right;
     margin-right: 2%;
+}
+
+.flex-grow {
+    flex-grow: 1;
 }
 
 .flex-grow2 {
@@ -131,6 +150,18 @@ textarea {
 
 .Tleft {
     text-align: left;
+}
+
+.Atop {
+    vertical-align: top;
+}
+
+.Amiddle {
+    vertical-align: middle;
+}
+
+.Abottom {
+    vertical-align: bottom;
 }
 
 .font64 {
@@ -180,27 +211,85 @@ textarea {
     color: red;
 }
 
+.bg-red {
+    background-color: red;
+}
+
 .green {
     color: green;
+}
+
+.bg-green {
+    background-color: green;
 }
 
 .brown {
     color: brown;
 }
 
+.background-brown {
+    background-color: brown;
+}
+
 .gray {
     color: gray;
+}
+
+.bg-gray {
+    background-color: gray;
 }
 
 .yellow {
     color: yellow;
 }
 
+.bg-yellow {
+    background-color: yellow;
+}
+
 
 /* IDs */
 
+#wrapper {
+    height: 100%;
+}
+
+#copyright {
+    margin: 0;
+}
+
 
 /* Other */
+
+.auth fieldset {
+    background-color: #F5FFFA10;
+    border: 0px;
+    border-radius: 5px;
+    padding: 50px;
+}
+
+.auth input {
+    background-color: transparent;
+    border: 1px solid #FF9900;
+    color: white;
+    border-radius: 5px;
+    width: 20vw;
+    height: 5vh;
+    font-size: larger;
+    margin: 2vh 0;
+}
+
+.auth input::placeholder {
+    color: white;
+}
+
+.auth input[type="submit"] {
+    padding: 3vh 0 5vh 0;
+}
+
+.auth input[type="submit"]:hover {
+    background-color: #F5FFFA30;
+}
 
 
 /* 

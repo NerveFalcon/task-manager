@@ -17,6 +17,16 @@ class View
 		
 	}
 
+	public static function JsAlertOnLoad(string $text)
+	{
+		return "
+		<script>
+			window.onload = function() {
+				alert(\"$text\");
+			};
+		</script>";
+	}
+
 	/**
 	 * Метод построения контейнера кнопок переключения страниц
 	 * зависящий от количества страниц
