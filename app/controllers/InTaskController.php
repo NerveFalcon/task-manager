@@ -34,10 +34,12 @@ class InTaskController extends Controller
 
 	public function ActionTask(int $id)
 	{
-		if (empty($id)) {
+		if (empty($id))
+		{
 			return false;
 		}
-		if (!empty($_POST)) {
+		if (!empty($_POST))
+		{
 		}
 		$task = array();
 		$task['id'] = $id;

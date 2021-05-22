@@ -73,7 +73,7 @@ fieldset {
     padding: 5px;
 }
 
-section {
+section:not(.auth) {
     background-color: white;
     color: black;
 }
@@ -290,7 +290,7 @@ section {
     color: white;
     border-radius: 5px;
     width: 20vw;
-    height: 5vh;
+    min-height: 5vh;
     font-size: larger;
     margin: 2vh 0;
 }
@@ -300,7 +300,7 @@ section {
 }
 
 .auth input[type="submit"] {
-    padding: 3vh 0 5vh 0;
+    padding: 3vh 0;
 }
 
 .auth input[type="submit"]:hover {

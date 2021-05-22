@@ -12,5 +12,4 @@
 			</div>
 		</fieldset>
 	</form>
-	<?php View::JsAlertOnLoad("Пока что входит с любыми данными")?>
 </section>

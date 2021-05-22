@@ -24,5 +24,6 @@
 		created by NerveFalcon
 	</div>
 </body>
+<?php echo View::JsAlertOnLoad("Пока что входит с любыми данными")?>
 
 </html>
