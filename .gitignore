@@ -3,3 +3,4 @@ Pr-w/*
 Testing/*
 *.code-workspace
 index.php
+static/configs/*
