@@ -10,11 +10,11 @@ class OutTaskController extends Controller
 		{
 			$tasks[$i]['id'] = $i;
 			$tasks[$i]['title'] = "title";
-			$tasks[$i]['desc'] = "description";
+			$tasks[$i]['text'] = "description";
 			$tasks[$i]['from'] = "from";
 			$tasks[$i]['to'] = "to";
 			$tasks[$i]['deadline'] = "deadline";
-			$tasks[$i]['status'] = "status";
+			$tasks[$i]['id_status'] = "status";
 			$tasks[$i]['OtherStatus'] = "На коррекцию";
 			$tasks[$i]['DoneStatus'] = "Принять";
 			$tasks[$i]['attachment'] = "url";
