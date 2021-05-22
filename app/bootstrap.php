@@ -7,10 +7,12 @@ require_once 'core/User.php';
 
 session_start();
 
-// if (!isset($_SESSION['user']) && Route::GetUri() != "auth")
-// {
-// 	header('Location: /auth');
-// }
+if (!isset($_SESSION['user']) && Route::GetUri() != "auth")
+{
+	header('Location: /auth');
+}
 $_SESSION['id'] = 1;
+define('ISADMIN', true);
+
 
 Route::start();

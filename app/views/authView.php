@@ -14,26 +14,16 @@
 </head>
 
 <body>
-	<header class="flex-container-row flex-between">
-		<div class="flex-item-row">
-		<h1>Добро пожаловать</h1>
-		</div>
-	</header>
 	<div id="wrapper" class="flex-container-column flex-between">
-		<main>
-			<div id="content">
-				<div class="box">
-					<?php include 'app/views/' . $contentView; ?>
-				</div>
-				<br class="clearfix">
-			</div>
+		<h1 class="Tcenter flex-item">Добро пожаловать</h1>
+		<main class="flex-item flex-grow">
+			<?php include 'app/views/' . $contentView; ?>
 		</main>
-		<footer>
-			<div id="copyright" class="gray Tright">
-				created by NerveFalcon
-			</div>
-		</footer>
+	</div>
+	<div id="copyright" class="gray">
+		created by NerveFalcon
 	</div>
 </body>
+<?php echo View::JsAlertOnLoad("Пока что входит с любыми данными")?>
 
 </html>

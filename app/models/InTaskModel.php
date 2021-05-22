@@ -2,7 +2,8 @@
 include "TaskModel.php";
 class InTaskModel extends TaskModel
 {
-    public function __construct() {
+    public function __construct()
+    {
         $this->db = self::SqlConnect();
     }
     /**
@@ -33,15 +34,12 @@ class InTaskModel extends TaskModel
         //     $this->Insert("tasks", $input);
         //     // $input[$i]['id_status'] = $i % 5 + 1;
         // }
-        // for ($i=1; $i <= 10; $i++) {
-        //     $input['email'] = "$i$i$i@gmail.com";
-        //     $input['pass'] = "$i$i$i";
-        //     $input['fio'] = "$i $i"."ов $i"."ович";
-        //     $this->Insert("users", $input);
-        // }
-        // for ($i=1; $i <= 10; $i++) {
-        //     $input[''] = "$i$i$i@gmail.com";
-        //     $this->Insert("users", $input);
-        // }
+        for ($i = 1; $i <= 10; $i++)
+        {
+            $input['email'] = "$i$i$i@gmail.com";
+            $input['pass'] = "$i$i$i";
+            $input['fio'] = "$i $i" . "ов $i" . "ович";
+            $this->Insert("users", $input);
+        }
     }
 }

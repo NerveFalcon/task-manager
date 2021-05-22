@@ -6,7 +6,7 @@ class OutTaskController extends Controller
 		$countPages = 12;
 		$pages = [$countPages, $page];
 		$tasks = array();
-		for ($i = 1; $i < 5; $i++)
+		for ($i = 0; $i < 5; $i++)
 		{
 			$tasks[$i]['id'] = $i;
 			$tasks[$i]['title'] = "title";

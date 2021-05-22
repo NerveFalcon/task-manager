@@ -6,7 +6,6 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<?php if (!ini_get("display_errors")) : ?>
 		<link rel="stylesheet" href="/static/css/style.css">
-		<link rel="stylesheet" href="/static/css/auth.css">
 	<?php endif; ?>
 	<title>My forum</title>
 	<script defer src="/static/js/jQuery.js"></script>
@@ -15,32 +14,25 @@
 
 <body>
 	<header class="flex-container-row flex-between">
-		<div class="logo flex-item-row flex-item-row-first">
+		<div class="flex-item flex-grow flex-item-row-first">.</div>
+		<div class="flex-item flex-grow flex-container-row flex-center">
+			<a class="flex-item" href="/">Чат</a>
+			<a class="flex-item" href="/inTasks">Входящие задачи</a>
+			<?php if (isset($_SESSION['user']) && ISADMIN) : ?>
+			<a class="flex-item" href="/user">Список пользователей</a>
+			<?php endif; ?>
 		</div>
-		<div class="flex-item-row flex-grow2 flex-container-row flex-center">
-			<a class="flex-item-row" href="/">Чат</a>
-			<a class="flex-item-row" href="/outTasks">Исходящие задачи</a>
-			<a class="flex-item-row" href="/inTasks">Входящие задачи</a>
-			<!-- < ?php if (isset($_SESSION['user']) && $_SESSION['user']->isAdmin()) : ?> -->
-				<a class="flex-item-row" href="/user">Список пользователей</a>
-				<a class="flex-item-row" href="/position">Список должностей</a>
-			<!-- < ?php endif; ?> -->
-		</div>
-		<div class="flex-item-row flex-item-row-last">
+		<div class="flex-item flex-grow flex-item-row-last">
 			<a href="/auth/logout" class="auth-btn">Выход</a>
 		</div>
 	</header>
-	<div id="wrapper" class="flex-container-column flex-between">
+	<div id="wrapper">
 		<main>
-			<div id="content">
-					<?php include 'app/views/' . $contentView; ?>
-			</div>
+			<?php include 'app/views/' . $contentView; ?>
 		</main>
-		<footer>
-			<div id="copyright" class="gray Tright">
-				created by NerveFalcon
-			</div>
-		</footer>
+	</div>
+	<div id="copyright" class="gray Tright">
+		created by NerveFalcon
 	</div>
 </body>
 

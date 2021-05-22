@@ -17,6 +17,16 @@ class View
 		
 	}
 
+	public static function JsAlertOnLoad(string $text)
+	{
+		return "
+		<script>
+			window.onload = function() {
+				alert(\"$text\");
+			};
+		</script>";
+	}
+
 	/**
 	 * Метод построения контейнера кнопок переключения страниц
 	 * зависящий от количества страниц
@@ -95,6 +105,6 @@ class View
 		{
 			$class .= 'currentPage';
 		}
-		return "<a href='/$url/$buildPage' class='flex-item-row'><fromphp class='$class'>$buildPage</fromphp></a>";
+		return "<a href='/$url/$buildPage' class='flex-item'><fromphp class='$class'>$buildPage</fromphp></a>";
 	}
 }
