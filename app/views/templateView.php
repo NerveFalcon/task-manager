@@ -13,7 +13,7 @@
 </head>
 
 <body>
-	<header class="flex-container-row flex-between">
+	<header class="flex-container-row flex-between bg-gray">
 		<div class="flex-item flex-grow flex-item-row-first">.</div>
 		<div class="flex-item flex-grow flex-container-row flex-center menu">
 			<a class="flex-item" href="/">Чат</a>
