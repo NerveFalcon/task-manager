@@ -15,7 +15,7 @@ class InTaskModel extends TaskModel
     {
         $showTasks = 4;
         $res = $this->db->query("SELECT tasks.* FROM tasks INNER JOIN workers WHERE workers.id = $_SESSION[id] AND tasks.id = workers.id_task ORDER BY tasks.deadline LIMIT " . ($page - 1)*$showTasks . "," . $showTasks . "");
-        
+
         return $res->fetch_all(1);
     }
     public function GetCountInTasks()
