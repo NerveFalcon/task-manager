@@ -3,6 +3,7 @@ class InTaskController extends Controller
 {
 	public function __construct()
 	{
+		parent::__construct();
 		$this->model = new InTaskModel();
 	}
 
@@ -13,19 +14,11 @@ class InTaskController extends Controller
 		// return true;
 		$pages = [$countPages, $page];
 		$tasks = $this->model->GetListInTasks($page);
-		foreach ($tasks as $task)
+		foreach ($tasks as $key => $task)
 		{
-			// $tasks[$i]['id'] = $i;
-			// $tasks[$i]['title'] = "title";
-			// $tasks[$i]['text'] = "description";
-			// $tasks[$i]['id_from'] = "from";
-			// $tasks[$i]['deadline'] = "deadline";
-			// $tasks[$i]['id_status'] = "status";
-			// $tasks[$i]['file_way'] = "url";
-
-			$task['type'] = "in";
-			$task['OtherStatus'] = "На коррекцию";
-			$task['DoneStatus'] = "Принять";
+			$tasks[$key]['type'] = "in";
+			$tasks[$key]['OtherStatus'] = "На коррекцию";
+			$tasks[$key]['DoneStatus'] = "Принять";
 		}
 
 		$this->view->Generate('task/listView.php', [$pages, $tasks]);
