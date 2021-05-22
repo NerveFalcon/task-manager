@@ -26,7 +26,7 @@ class Model
 
 	public static function SqlConnect()
 	{
-		$data = include("app/core/db.php");
+		$data = include("static/configs/db.php");
 		$sql = new mysqli($data['hostname'], $data['username'], $data['password'], $data['database']);
 		$sql->set_charset('utf-8');
 		return $sql;

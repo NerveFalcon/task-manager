@@ -21,7 +21,7 @@
 				<a id="" class="flex-item" href="/inTasks">Входящие задачи</a>
 				<div class = "vip-menu">
 					<a class="vip-item" href ="/outTasks">Исходящие задачи</a>
-					<a class="vip-item" href ="/outTasks/Create">Создать задачу</a>
+					<a class="vip-item" href ="/outTask/Create">Создать задачу</a>
 				</div>
 			</div>
 			<?php if (isset($_SESSION['user']) && ISADMIN) : ?>
