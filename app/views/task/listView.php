@@ -12,7 +12,7 @@ $params = $params[1];
 		<div class="task">
 			<div class="top flex-container-row flex-around">
 				<h2 class="flex-item flex-item-row-first"><?php echo $task['title'] ?></h2>
-				<span class="status flex-item flex-item-row-last"><?php echo $task['id_status'] ?></span>
+				<span class="status flex-item flex-item-row-last"><?php echo $task['status'] ?></span>
 			</div>
 			<div class="desc">
 				<?php echo $task['text'] ?>
