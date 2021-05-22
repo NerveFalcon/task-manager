@@ -414,9 +414,11 @@ section:not(.auth) {
     background-color: gray;
     text-align: left;
 }
+
 .vip-item{
     display: block;
 }
+
 #linkInTasks:hover .vip-menu{
     display: block;
 }
