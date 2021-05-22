@@ -20,24 +20,28 @@ class InTaskModel extends TaskModel
     }
     public function GetCountInTasks()
     {
-        // $res = $this->db->query("SELECT COUNT(tasks.id) as count FROM tasks INNER JOIN workers WHERE workers.id = $_SESSION[id] AND tasks.id = workers.id_task");
+        $res = $this->db->query("SELECT COUNT(tasks.id) as count FROM tasks INNER JOIN workers WHERE workers.id = $_SESSION[id] AND tasks.id = workers.id_task");
 
-        // return $res->fetch_all(1)[0]['count'];
-        $input = array();
-        // for ($i=1; $i <=  10; $i++) { 
+        return $res->fetch_all(1)[0]['count'];
+        // $input = array();
+        // for ($i=11; $i <= 20; $i++) { 
         //     $input['id_from'] = $i;
         //     $input['title'] = "tittle$i";
-        //     $input['text']  = "teteteteette";
+        //     $input['text']  = 5*$i;
         //     $input['deadline'] = "2021-11-$i";
         //     $input['file_way'] = "fileWay$i";
-        //     return $this->Insert("tasks", $input);
+        //     $this->Insert("tasks", $input);
         //     // $input[$i]['id_status'] = $i % 5 + 1;
         // }
-        for ($i=1; $i <= 10; $i++) {
-            $input['email'] = "$i$i$i@gmail.com";
-            $input['pass'] = "$i$i$i";
-            $input['fio'] = "$i $i"."ов $i"."ович";
-            $this->Insert("users", $input);
-        }
+        // for ($i=1; $i <= 10; $i++) {
+        //     $input['email'] = "$i$i$i@gmail.com";
+        //     $input['pass'] = "$i$i$i";
+        //     $input['fio'] = "$i $i"."ов $i"."ович";
+        //     $this->Insert("users", $input);
+        // }
+        // for ($i=1; $i <= 10; $i++) {
+        //     $input[''] = "$i$i$i@gmail.com";
+        //     $this->Insert("users", $input);
+        // }
     }
 }
