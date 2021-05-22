@@ -412,6 +412,7 @@ section:not(.auth) {
     display: none;
     position: absolute;
     background-color: #222222;
+    text-align: left;
 }
 .vip-item{
     display: block;
