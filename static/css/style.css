@@ -76,6 +76,7 @@ fieldset {
 section:not(.auth) {
     background-color: white;
     color: black;
+    box-sizing: content-box;
 }
 
 
