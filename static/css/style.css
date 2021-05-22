@@ -371,7 +371,7 @@ section:not(.auth) {
 }
 
 .tasks .links>* {
-    background-color: black;
+    background-color: #222222;
     margin: 20px;
     padding: 15px 50px;
     border-radius: 50%;
