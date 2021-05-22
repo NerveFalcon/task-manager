@@ -3,4 +3,4 @@ Pr-w/*
 Testing/*
 *.code-workspace
 index.php
-app/core/db.php
+static/configs/*

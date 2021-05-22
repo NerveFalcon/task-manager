@@ -15,9 +15,15 @@
 <body>
 	<header class="flex-container-row flex-between bg-gray">
 		<div class="flex-item flex-grow flex-item-row-first">.</div>
-		<div class="flex-item flex-grow flex-container-row flex-center">
+		<div class="flex-item flex-grow flex-container-row flex-center menu">
 			<a class="flex-item" href="/">Чат</a>
-			<a class="flex-item" href="/inTasks">Входящие задачи</a>
+			<div id="linkInTasks">
+				<a id="" class="flex-item" href="/inTasks">Входящие задачи</a>
+				<div class = "vip-menu">
+					<a class="vip-item" href ="/outTasks">Исходящие задачи</a>
+					<a class="vip-item" href ="/outTask/Create">Создать задачу</a>
+				</div>
+			</div>
 			<?php if (isset($_SESSION['user']) && ISADMIN) : ?>
 			<a class="flex-item" href="/user">Список пользователей</a>
 			<?php endif; ?>

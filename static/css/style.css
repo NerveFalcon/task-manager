@@ -18,7 +18,7 @@ body {
     background-position: 0 30%;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    color: white;
+    color: #FFFAFA;
 }
 
 header {
@@ -74,8 +74,8 @@ fieldset {
 }
 
 section:not(.auth) {
+    color: #222222;
     background-color: white;
-    color: black;
     box-sizing: content-box;
 }
 
@@ -279,7 +279,7 @@ section:not(.auth) {
 /* Other */
 
 .auth fieldset {
-    background-color: #F5FFFA10;
+    background-color: #222222;
     border: 0px;
     border-radius: 5px;
     padding: 50px;
@@ -288,7 +288,7 @@ section:not(.auth) {
 .auth input {
     background-color: transparent;
     border: 1px solid #FF9900;
-    color: white;
+    color: #FFFAFA;
     border-radius: 5px;
     width: 20vw;
     min-height: 5vh;
@@ -297,7 +297,7 @@ section:not(.auth) {
 }
 
 .auth input::placeholder {
-    color: white;
+    color: #FFFAFA;
 }
 
 .auth input[type="submit"] {
@@ -305,13 +305,13 @@ section:not(.auth) {
 }
 
 .auth input[type="submit"]:hover {
-    background-color: #F5FFFA30;
+    background-color: #222222;
 }
 
 .chat {
     border: 1px solid #FF9900;
-    background-color: white;
-    color: black;
+    background-color: #FFFAFA;
+    color: #222222;
 }
 
 .chat>* {
@@ -355,7 +355,7 @@ section:not(.auth) {
     padding: 10px 10px;
     border: 1px solid #FF9900;
     outline: none;
-    background-color: white;
+    background-color: #FFFAFA;
     width: 85%;
 }
 
@@ -364,18 +364,18 @@ section:not(.auth) {
     padding: 10px 10px;
     outline: none;
     border: 1px solid #FF9900;
-    background-color: white;
+    background-color: #FFFAFA;
     position: absolute;
     right: 0;
     width: 13%;
 }
 
 .tasks .links>* {
-    background-color: black;
+    background-color: #222222;
     margin: 20px;
     padding: 15px 50px;
     border-radius: 50%;
-    color: white;
+    color: #FFFAFA;
 }
 
 .tasks .links .selected {
@@ -407,3 +407,16 @@ section:not(.auth) {
     place-items: stretch;
     place-content: stretch;
 } */
+
+.vip-menu{
+    display: none;
+    position: absolute;
+    background-color: #222222;
+    text-align: left;
+}
+.vip-item{
+    display: block;
+}
+#linkInTasks:hover .vip-menu{
+    display: block;
+}
