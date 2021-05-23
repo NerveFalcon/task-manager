@@ -1,7 +1,7 @@
-<section class="inTask">
+<section class="inTask task">
 	<div class="top flex-container-row">
-		<h1 class="flex-item-row flex-item-row-first"><?php echo $params['title'] ?></h1>
-		<span class="status flex-item-row flex-item-row-last"><?php echo $params['status'] ?></span>
+		<h1 class="flex-item flex-item-row-first"><?php echo $params['title'] ?></h1>
+		<span class="status flex-item flex-item-row-last"><?php echo $params['status'] ?></span>
 	</div>
 	<span><?php echo $params['from'] ?></span>
 	<div class="desc">
@@ -28,7 +28,7 @@
 		</form>
 	</div>
 	<div class="top flex-container-row flex-around">
-		<a href="/inTasks" class="button flex-item-row">Вернуться</a>
-		<a href="#" class="button flex-item-row"><?php echo $params['DoneStatus'] ?></a>
+		<a href="/inTasks" class="button flex-item">Вернуться</a>
+		<a href="#" class="button flex-item"><?php echo $params['DoneStatus'] ?></a>
 	</div>
 </section>

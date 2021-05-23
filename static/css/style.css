@@ -76,7 +76,7 @@ fieldset {
 section:not(.auth) {
     color: #222222;
     background-color: white;
-    box-sizing: content-box;
+    box-sizing: border-box;
 }
 
 
@@ -408,15 +408,17 @@ section:not(.auth) {
     place-content: stretch;
 } */
 
-.vip-menu{
+.vip-menu {
     display: none;
     position: absolute;
     background-color: #222222;
     text-align: left;
 }
-.vip-item{
+
+.vip-item {
     display: block;
 }
-#linkInTasks:hover .vip-menu{
+
+#linkInTasks:hover .vip-menu {
     display: block;
 }

@@ -37,8 +37,11 @@ class View
 	 * 
 	 * @return string html-код паггинации
 	 */
-	public static function buildPageBtnsContainer(int $countPage, int $currentPage, string $url)
+	public static function buildPageBtnsContainer(int $countPage, int $currentPage)
 	{
+		$url = explode('/', Route::GetURI());
+		unset($url[count($url) - 1]);
+		$url = implode('/', $url);
 		$firstPage = 1;
 		if ($countPage < 2)
 		{

@@ -1,7 +1,7 @@
 <?php
 class OutTaskController extends Controller
 {
-	public function ActionList(int $page = 1)
+	public function ActionList(string $filter = "all", int $page = 1)
 	{
 		$countPages = 12;
 		$pages = [$countPages, $page];

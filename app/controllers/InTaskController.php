@@ -7,7 +7,7 @@ class InTaskController extends Controller
 		$this->model = new InTaskModel();
 	}
 
-	public function ActionList(int $page = 1)
+	public function ActionList(string $filter = "all", int $page = 1)
 	{
 		$countPages = $this->model->GetCountInTasks();
 		// echo $countPages;
