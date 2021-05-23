@@ -411,7 +411,7 @@ section:not(.auth) {
 .vip-menu {
     display: none;
     position: absolute;
-    background-color: #222222;
+    background-color: gray;
     text-align: left;
 }
 
