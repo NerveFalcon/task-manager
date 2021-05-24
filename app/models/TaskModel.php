@@ -5,6 +5,9 @@
  */
 class TaskModel extends Model
 {
+
+	#region static
+
 	/**
 	 * Список всех статусов
 	 * 
@@ -17,6 +20,7 @@ class TaskModel extends Model
 			"performed",
 			"verified",
 			"done",
+			"archive",
 			"draft"
 		);
 	}
@@ -36,6 +40,43 @@ class TaskModel extends Model
 		$currentStatus = explode('+', $currentStatus);
 		return implode('+', self::ToggleInArray($currentStatus, $status, "await"));
 	}
+
+	/**
+	 * Выбор цвета фильтра
+	 * 
+	 * @param string $status Название статуса
+	 * 
+	 * @return string Название цвета
+	 */
+	public static function FilterColor(string $status): string
+	{
+		switch ($status)
+		{
+			case 'await':
+				return "orange";
+				break;
+			case 'performed':
+				return "blue";
+				break;
+			case 'verified':
+				return "red";
+				break;
+			case 'done':
+				return "green";
+				break;
+			case 'archive':
+				return "black";
+				break;
+			case 'draft':
+				return "gray";
+				break;
+			default:
+				return "brown";
+				break;
+		}
+	}
+
+	#endregion
 
 	/**
 	 * Получение русского наименования статуса

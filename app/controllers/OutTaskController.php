@@ -1,8 +1,22 @@
 <?php
 class OutTaskController extends Controller
 {
-	public function ActionList(string $filter = "all", int $page = 1)
+	public function __construct()
 	{
+		parent::__construct();
+		$this->model = new OutTaskModel();
+	}
+
+	public function ActionList(string $filter = null, int $page = 1)
+	{
+		if (is_null($filter))
+		{
+			header("Location: /" . Route::GetURI() . "/await/$page");
+		}
+		if (count(array_diff(explode('+', $filter), $this->model->GetAllStatus())) > 0)
+		{
+			return false;
+		}
 		$countPages = 12;
 		$pages = [$countPages, $page];
 		$tasks = array();
@@ -25,11 +39,10 @@ class OutTaskController extends Controller
 		return true;
 	}
 
-	public function ActionTask(int $id)
+	public function ActionTask(int $id = null)
 	{
-		if (empty($id))
+		if (!empty($_POST))
 		{
-			return false;
 		}
 		$task = array();
 		$task['id'] = $id;
@@ -40,7 +53,8 @@ class OutTaskController extends Controller
 		$task['deadline'] = "deadline";
 		$task['status'] = "status";
 		$task['DoneStatus'] = "Принять";
-		$task['attachment'] = "url";
+		$task['attachment'] = [['title' => 'file1', 'url' => 'url1'], ['title' => 'file2', 'url' => 'url2']];
+		$task['comments'] = [['author' => 'author1', 'text' => 'texttextext', 'date' => 'date'], ['author' => 'author2', 'text' => 'texttextext', 'date' => 'date']];
 
 		$this->view->generate('task/outTaskView.php', $task);
 		return true;

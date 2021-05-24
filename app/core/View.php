@@ -12,10 +12,29 @@ class View
 		include "app/views/" . $templateView;
 	}
 
-	public static function Filter()
+	public static function BuildFilter(int $currentPage)
 	{
-		
+
+		$status = TaskModel::GetAllStatus();
+		$result = "<div class=\"filter Tright\">";
+		foreach ($status as $stat)
+		{
+			$href = TaskModel::FilterSetting($stat) . "/$currentPage";
+			$color = TaskModel::FilterColor($stat);
+			$result .= "<a class=\"element bg-$color\" href=\"../$href\"></a> ";
+		}
+		$result .= "</div>";
+		return $result;
 	}
+
+	public static function Test()
+	{
+		for ($i = 0; $i < 10; $i++)
+		{
+			yield $_SESSION[$i] = $i;
+		}
+	}
+
 
 	public static function JsAlertOnLoad(string $text)
 	{
@@ -26,6 +45,8 @@ class View
 			};
 		</script>";
 	}
+
+	#region	paggination
 
 	/**
 	 * Метод построения контейнера кнопок переключения страниц
@@ -40,8 +61,10 @@ class View
 	public static function buildPageBtnsContainer(int $countPage, int $currentPage)
 	{
 		$url = explode('/', Route::GetURI());
-		unset($url[count($url) - 1]);
+		if (is_numeric($url[count($url) - 1]))
+			unset($url[count($url) - 1]);
 		$url = implode('/', $url);
+
 		$firstPage = 1;
 		if ($countPage < 2)
 		{
@@ -110,4 +133,6 @@ class View
 		}
 		return "<a href='/$url/$buildPage' class='flex-item'><fromphp class='$class'>$buildPage</fromphp></a>";
 	}
+
+	#endregion
 }

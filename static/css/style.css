@@ -175,6 +175,18 @@ section:not(.auth) {
     font-size: 64pt;
 }
 
+.font32 {
+    font-size: 32pt;
+}
+
+.font24 {
+    font-size: 24pt;
+}
+
+.font16 {
+    font-size: 16pt;
+}
+
 .pg-btn {
     padding: 30px 10%;
 }
@@ -220,45 +232,59 @@ section:not(.auth) {
 
 
 /* colors */
-
+.black{
+    color: black;
+}
 .red {
     color: red;
-}
-
-.bg-red {
-    background-color: red;
 }
 
 .green {
     color: green;
 }
-
-.bg-green {
-    background-color: green;
+.blue{
+    color: blue;
 }
-
 .brown {
     color: brown;
-}
-
-.background-brown {
-    background-color: brown;
 }
 
 .gray {
     color: gray;
 }
 
+.yellow {
+    color: yellow;
+}
+.orange{
+    color: orange;
+}
+.bg-black{
+    background-color: black;
+}
+.bg-red {
+    background-color: red;
+}
+
+.bg-green {
+    background-color: green;
+}
+.bg-blue{
+    background-color: blue;
+}
+.bg-brown {
+    background-color: brown;
+}
+
 .bg-gray {
     background-color: gray;
 }
 
-.yellow {
-    color: yellow;
-}
-
 .bg-yellow {
     background-color: yellow;
+}
+.bg-orange{
+    background-color: orange;
 }
 
 
@@ -277,6 +303,20 @@ section:not(.auth) {
 
 
 /* Other */
+.vip-menu {
+    display: none;
+    position: absolute;
+    background-color: gray;
+    text-align: left;
+}
+
+.vip-item {
+    display: block;
+}
+
+#linkInTasks:hover .vip-menu {
+    display: block;
+}
 
 .auth fieldset {
     background-color: #222222;
@@ -379,7 +419,23 @@ section:not(.auth) {
 }
 
 .tasks .links .selected {
-    background-color: #2419B2;
+    background-color: #FF9900;
+}
+
+.filter .element {
+    padding: 1px 10px;
+    content: " ";
+    margin: 1px;
+}
+
+.filter .element:first-child {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+.filter .element:last-child{
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    margin-right: 10%;
 }
 
 .tasks .task {
@@ -389,7 +445,8 @@ section:not(.auth) {
 }
 
 .task .top {
-    margin: 20px 15px;
+    box-sizing: border-box;
+    padding: 20px 15px;
 }
 
 .task .desc {
@@ -407,18 +464,3 @@ section:not(.auth) {
     place-items: stretch;
     place-content: stretch;
 } */
-
-.vip-menu {
-    display: none;
-    position: absolute;
-    background-color: gray;
-    text-align: left;
-}
-
-.vip-item {
-    display: block;
-}
-
-#linkInTasks:hover .vip-menu {
-    display: block;
-}

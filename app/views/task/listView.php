@@ -7,7 +7,7 @@ $params = $params[1];
 		<a href="/inTasks" class="<?php if ($params[0]['type'] == 'in') echo 'selected '; ?>flex-item">Входящие</a>
 		<a href="/outTasks" class="<?php if ($params[0]['type'] == "out") echo 'selected '; ?>flex-item">Исходящие</a>
 	</div>
-	<?php echo View::Filter(); ?>
+	<?php echo View::BuildFilter($pages[1]); ?>
 	<div class="list">
 		<?php foreach ($params as $task) : ?>
 			<div class="task">
