@@ -113,7 +113,7 @@ class TaskModel extends Model
 	 * 
 	 * @return int|string Идентификатор вставленной записи 
 	 */
-	public function AddComment(int $id, string $text): int|string
+	public function AddComment(int $id, string $text): int
 	{
 		# code...	// id пользователя брать из $_SESSION['id']
 		return $this->Insert("comments", []);

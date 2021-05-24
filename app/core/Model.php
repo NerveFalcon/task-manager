@@ -48,7 +48,7 @@ class Model
 	 * 
 	 * @return array Массив с добавленным/удалённым элементом
 	 */
-	public static function ToggleInArray(array $array, mixed $toggle, mixed $zeroElement, mixed $assocKey = null): array
+	public static function ToggleInArray(array $array, $toggle, $zeroElement, $assocKey = null): array
 	{
 
 		if (in_array($toggle, $array))
@@ -104,7 +104,7 @@ class Model
 	 * 
 	 * @return int|string иднтификатор последнего вставленного элемента
 	 */
-	protected function Insert(string $table, array $input): int|string
+	protected function Insert(string $table, array $input): int
 	{
 		$this->ThisSqlConnect();
 
