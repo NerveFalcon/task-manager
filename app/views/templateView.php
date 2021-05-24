@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="shortcut icon" href="/static/img/favicon.ico">
 	<?php if (!ini_get("display_errors")) : ?>
 		<link rel="stylesheet" href="/static/css/style.css">
 	<?php endif; ?>
@@ -21,7 +22,7 @@
 				<a id="" class="flex-item" href="/inTasks">Входящие задачи</a>
 				<div class = "vip-menu">
 					<a class="vip-item" href ="/outTasks">Исходящие задачи</a>
-					<a class="vip-item" href ="/outTask/Create">Создать задачу</a>
+					<a class="vip-item" href ="/outTask/create">Создать задачу</a>
 				</div>
 			</div>
 			<?php if (isset($_SESSION['user']) && ISADMIN) : ?>

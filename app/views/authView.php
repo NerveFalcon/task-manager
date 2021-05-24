@@ -4,6 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<link rel="shortcut icon" href="/static/img/favicon.ico">
 	<?php if (!ini_get("display_errors")) : ?>
 		<link rel="stylesheet" href="/static/css/style.css">
 		<link rel="stylesheet" href="/static/css/auth.css">
