@@ -232,9 +232,11 @@ section:not(.auth) {
 
 
 /* colors */
-.black{
+
+.black {
     color: black;
 }
+
 .red {
     color: red;
 }
@@ -242,9 +244,11 @@ section:not(.auth) {
 .green {
     color: green;
 }
-.blue{
+
+.blue {
     color: blue;
 }
+
 .brown {
     color: brown;
 }
@@ -256,12 +260,15 @@ section:not(.auth) {
 .yellow {
     color: yellow;
 }
-.orange{
+
+.orange {
     color: orange;
 }
-.bg-black{
+
+.bg-black {
     background-color: black;
 }
+
 .bg-red {
     background-color: red;
 }
@@ -269,9 +276,11 @@ section:not(.auth) {
 .bg-green {
     background-color: green;
 }
-.bg-blue{
+
+.bg-blue {
     background-color: blue;
 }
+
 .bg-brown {
     background-color: brown;
 }
@@ -283,7 +292,8 @@ section:not(.auth) {
 .bg-yellow {
     background-color: yellow;
 }
-.bg-orange{
+
+.bg-orange {
     background-color: orange;
 }
 
@@ -303,19 +313,24 @@ section:not(.auth) {
 
 
 /* Other */
+
+#linkInTasks:hover .vip-menu {
+    display: block;
+}
+
 .vip-menu {
     display: none;
     position: absolute;
     background-color: gray;
-    text-align: left;
+    border-bottom-left-radius: 40%;
+    border-bottom-right-radius: 40%;
+    padding-top: 10px;
 }
 
 .vip-item {
     display: block;
-}
-
-#linkInTasks:hover .vip-menu {
-    display: block;
+    box-sizing: border-box;
+    margin: 10px;
 }
 
 .auth fieldset {
@@ -432,7 +447,8 @@ section:not(.auth) {
     border-top-left-radius: 50%;
     border-bottom-left-radius: 50%;
 }
-.filter .element:last-child{
+
+.filter .element:last-child {
     border-top-right-radius: 50%;
     border-bottom-right-radius: 50%;
     margin-right: 10%;

@@ -20,7 +20,7 @@
 			<a class="flex-item" href="/">Чат</a>
 			<div id="linkInTasks">
 				<a id="" class="flex-item" href="/inTasks">Входящие задачи</a>
-				<div class = "vip-menu">
+				<div class = "vip-menu Tcenter">
 					<a class="vip-item" href ="/outTasks">Исходящие задачи</a>
 					<a class="vip-item" href ="/outTask/create">Создать задачу</a>
 				</div>
