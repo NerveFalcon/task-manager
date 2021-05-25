@@ -233,8 +233,16 @@ section:not(.auth) {
 
 /* colors */
 
+.color1 {
+    color: #FF9900;
+}
+
 .black {
     color: black;
+}
+
+.white {
+    color: white;
 }
 
 .red {
@@ -263,6 +271,14 @@ section:not(.auth) {
 
 .orange {
     color: orange;
+}
+
+.bg-color1 {
+    background-color: #FF9900;
+}
+
+.bg-white {
+    background-color: white;
 }
 
 .bg-black {
@@ -454,10 +470,32 @@ section:not(.auth) {
     margin-right: 10%;
 }
 
-.tasks .task {
+.task {
+    position: relative;
     border: 1px solid #FF9900;
     border-radius: 5px;
-    margin: 5px;
+    margin: 25px 10%;
+}
+
+.notify {
+    position: absolute;
+    top: -15px;
+    border: 1px black solid;
+    border-radius: 50%;
+}
+
+.notify-left {
+    left: -15px;
+    padding: 5pt 10pt;
+}
+
+.notify-right {
+    right: -15px;
+    padding: 3pt 5pt;
+}
+
+.unseen {
+    display: none;
 }
 
 .task .top {

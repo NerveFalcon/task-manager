@@ -12,7 +12,14 @@ class View
 		include "app/views/" . $templateView;
 	}
 
-	public static function BuildFilter(int $currentPage)
+	/**
+	 * Метод построения фильтра
+	 * 
+	 * @param int $currentPage Текущая страница
+	 * 
+	 * @return string html-код фильтра
+	 */
+	public static function BuildFilter(int $currentPage): string
 	{
 
 		$status = TaskModel::GetAllStatus();

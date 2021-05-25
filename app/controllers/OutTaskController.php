@@ -27,12 +27,17 @@ class OutTaskController extends Controller
 			$tasks[$i]['text'] = "description";
 			$tasks[$i]['from'] = "from";
 			$tasks[$i]['to'] = "to";
-			$tasks[$i]['deadline'] = "deadline";
+			$tasks[$i]['deadline'] = "2021-11-11";
 			$tasks[$i]['id_status'] = "status";
 			$tasks[$i]['OtherStatus'] = "На коррекцию";
 			$tasks[$i]['DoneStatus'] = "Принять";
 			$tasks[$i]['attachment'] = "url";
 			$tasks[$i]['type'] = "out";
+			$tasks[$i]['seen'] = rand(0, 1);
+			if (rand(0, 1))
+				$tasks[$i]['deadline'] = "2021-6-5";
+			$tasks[$i]['diff'] = (new DateTime($tasks[$i]['deadline']))->diff(new DateTime)->format("%a");
+		
 		}
 
 		$this->view->Generate('task/listView.php', [$pages, $tasks]);

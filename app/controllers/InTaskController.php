@@ -23,6 +23,10 @@ class InTaskController extends Controller
 			$tasks[$key]['type'] = "in";
 			$tasks[$key]['OtherStatus'] = "На коррекцию";
 			$tasks[$key]['DoneStatus'] = "Принять";
+			$tasks[$key]['seen'] = rand(0, 1);
+			if (rand(0, 1))
+				$tasks[$key]['deadline'] = "2021-6-5";
+			$tasks[$key]['diff'] = (new DateTime($tasks[$key]['deadline']))->diff(new DateTime)->format("%a");
 		}
 
 		$this->view->Generate('task/listView.php', [$pages, $tasks]);
