@@ -13,6 +13,14 @@ class AuthModel extends Model
 			return $fetch;
 	}
 
+	public function GetFIO(string $email)
+	{
+		$this->ThisSqlConnect();
+
+		$query = $this->db->query("select fio from users where email='$email'");
+		return $this->Fetch($query)[0]['fio'];
+	}
+
 	public function generateCode($length = 6)
 	{
 		$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPRQSTUVWXYZ 0123456789!@#$&";
