@@ -43,7 +43,6 @@ class InTaskModel extends TaskModel
     }
     public function GetTask(int $id)
     {
-
         $res = $this->db->query("SELECT tasks.*, status.ru as status, users.fio as fio FROM (tasks INNER JOIN users ON  tasks.id_from = users.id) INNER JOIN status ON status.id = tasks.id_status AND tasks.id = $id");
 
         return $res->fetch_all(1)[0];
@@ -51,7 +50,6 @@ class InTaskModel extends TaskModel
 
     public function GetComment(int $id)
     {
-
         $res = $this->db->query("SELECT comments.text as text, comments.date as date, users.fio as fio FROM comments INNER JOIN users ON comments.id_from = users.id AND commets.id_task = $id ORDER BY comments.date");
 
         return $res->fetch_all(1);
