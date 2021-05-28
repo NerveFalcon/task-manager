@@ -23,6 +23,23 @@ class Model
 	}
 
 	/**
+	 * Обработчик строки или массива строк
+	 * 
+	 * @param string|array $input Входная строка
+	 * 
+	 * @return string|array Обработанные данные
+	 */
+	public static function InputHandlerRecursive($input)
+	{
+		if (!is_array($input))
+			return self::InputHandler($input);
+
+		foreach ($input as $key => $value)
+			$result[self::InputHandler($key)] = self::InputHandlerRecursive($value);
+		return $result;
+	}
+
+	/**
 	 * Обработка строки перед занесением в БД
 	 * 
 	 * @param string $subject Исходная строка
@@ -97,6 +114,21 @@ class Model
 	}
 
 	/**
+	 * Преобразование sql-запроса в массив
+	 * 
+	 * @param mysqli_result|false $query Результат запроса
+	 * 
+	 * @return array|false Результат
+	 */
+	protected function Fetch($query)
+	{
+		if ($query != false)
+			return $query->fetch_all(1);
+		else
+			return false;
+	}
+
+	/**
 	 * Количество записей в таблице
 	 * 
 	 * @param string $table Название таблицы
@@ -147,7 +179,7 @@ class Model
 	 * 
 	 * @return bool успешность выполненного запроса
 	 */
-	public function UpdateOne(string $table, array $set, int $id): bool
+	protected function UpdateOne(string $table, array $set, int $id): bool
 	{
 		return $this->Update($table, $set, ['id' => $id])[0];
 	}
