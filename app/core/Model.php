@@ -79,7 +79,7 @@ class Model
 		$sql->set_charset('utf-8');
 		return $sql;
 	}
-	
+
 	#endregion
 
 	/**
@@ -97,6 +97,23 @@ class Model
 	}
 
 	/**
+	 * Количество записей в таблице
+	 * 
+	 * @param string $table Название таблицы
+	 * @param array|null $where Условие (ассоциативный массив)
+	 * 
+	 * @return int Количество записей в таблице
+	 */
+	protected function CountIn(string $table, array $where = null): int
+	{
+		$this->ThisSqlConnect();
+		if (is_null($where))
+			return $this->db->query("select count(*) as c from $table")->fetch_all(1)[0]['c'];
+		$key = array_keys($where)[0];
+		return $this->db->query("select count(*) as c from $table, where $key = '$where[$key]'")->fetch_all(1)[0]['c'];
+	}
+
+	/**
 	 * Вставка в БД
 	 * 
 	 * @param string $table Название таблицы
@@ -104,17 +121,35 @@ class Model
 	 * 
 	 * @return int|string иднтификатор последнего вставленного элемента
 	 */
-	protected function Insert(string $table, array $input): int
+	protected function Insert(string $table, array $input)
 	{
 		$this->ThisSqlConnect();
 
+		foreach ($input as $key => $value)
+			if (empty($value))
+				unset($input[$key]);
+
 		$keys = implode(", ", array_keys($input));
 		$val = "'" . implode("', '", $input) . "'";
-		
-		//return "insert into $table($keys) values ($val)";
-		
+
+		// return "insert into $table($keys) values ($val)";
+
 		$this->db->query("insert into $table($keys) values ($val)");
 		return $this->db->insert_id;
+	}
+
+	/**
+	 * Обновление строки в таблице БД
+	 * 
+	 * @param string $table Название таблицы
+	 * @param array $set Ассоциативный массив обновляемых данных
+	 * @param int $id Идентификатор строки
+	 * 
+	 * @return bool успешность выполненного запроса
+	 */
+	public function UpdateOne(string $table, array $set, int $id): bool
+	{
+		return $this->Update($table, $set, ['id' => $id])[0];
 	}
 
 	/**
@@ -158,5 +193,20 @@ class Model
 			}
 		}
 		return $result;
+	}
+
+	/**
+	 * Удаление строки из таблицы
+	 * 
+	 * @param string $table Название таблицы
+	 * @param int $id Идентификатор строки
+	 * 
+	 * @return bool Статус выполнения
+	 */
+	protected function Delete(string $table, int $id): bool
+	{
+		$this->ThisSqlConnect();
+
+		return $this->db->query("delete from $table WHERE id = '$id'");
 	}
 }
