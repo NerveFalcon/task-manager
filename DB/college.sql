@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Май 28 2021 г., 19:37
+-- Время создания: Май 28 2021 г., 19:47
 -- Версия сервера: 8.0.25
 -- Версия PHP: 7.3.27-1~deb10u1
 
@@ -43,7 +43,7 @@ CREATE TABLE `chat` (
 CREATE TABLE `comments` (
   `id` int NOT NULL,
   `id_task` int NOT NULL,
-  `id_from` int NOT NULL,
+  `id_from` int DEFAULT NULL,
   `text` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -477,14 +477,14 @@ ALTER TABLE `users`
 -- Ограничения внешнего ключа таблицы `chat`
 --
 ALTER TABLE `chat`
-  ADD CONSTRAINT `chat_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `chat_ibfk_1` FOREIGN KEY (`id_user`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `comments`
 --
 ALTER TABLE `comments`
-  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`id_from`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`id_task`) REFERENCES `tasks` (`id`);
+  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`id_from`) REFERENCES `users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`id_task`) REFERENCES `tasks` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `post`
@@ -497,15 +497,15 @@ ALTER TABLE `post`
 -- Ограничения внешнего ключа таблицы `rank`
 --
 ALTER TABLE `rank`
-  ADD CONSTRAINT `rank_ibfk_1` FOREIGN KEY (`id_head`) REFERENCES `posts` (`id`),
-  ADD CONSTRAINT `rank_ibfk_2` FOREIGN KEY (`id_sub`) REFERENCES `posts` (`id`);
+  ADD CONSTRAINT `rank_ibfk_1` FOREIGN KEY (`id_head`) REFERENCES `posts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `rank_ibfk_2` FOREIGN KEY (`id_sub`) REFERENCES `posts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `tasks`
 --
 ALTER TABLE `tasks`
-  ADD CONSTRAINT `tasks_ibfk_1` FOREIGN KEY (`id_from`) REFERENCES `users` (`id`),
-  ADD CONSTRAINT `tasks_ibfk_2` FOREIGN KEY (`id_status`) REFERENCES `status` (`id`);
+  ADD CONSTRAINT `tasks_ibfk_1` FOREIGN KEY (`id_from`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `tasks_ibfk_2` FOREIGN KEY (`id_status`) REFERENCES `status` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ограничения внешнего ключа таблицы `workers`
