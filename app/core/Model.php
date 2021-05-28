@@ -116,7 +116,7 @@ class Model
 	/**
 	 * Преобразование sql-запроса в массив
 	 * 
-	 * @param mysqli_result $query Результат запроса
+	 * @param mysqli_result|false $query Результат запроса
 	 * 
 	 * @return array|false Результат
 	 */
