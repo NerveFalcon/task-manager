@@ -3,12 +3,12 @@
 		<h1 class="flex-item flex-item-row-first font32	"><?php echo $params['title'] ?></h1>
 		<span class="flex-item flex-item-row-last"><?php echo $params['status'] ?></span>
 	</div>
-	<span><?php echo $params['from'] ?></span>
+	<span><?php echo $params['id_from'] ?></span>
 	<div class="desc">
-		<p><?php echo $params['desc'] ?></p>
-		<?php if (isset($params['attachment'])) : ?>
+		<p><?php echo $params['text'] ?></p>
+		<?php if (isset($params['file_way'])) : ?>
 			<div class="files">
-				<?php foreach ($params['attachment'] as $file) : ?>
+				<?php foreach ($params['file_way'] as $file) : ?>
 					<a href="/static/files/<?php echo $file['url'] ?>" target="_blank"><?php echo $file['title'] ?></a>
 				<?php endforeach; ?>
 			</div>
@@ -19,7 +19,7 @@
 		<?php foreach ($params['comments'] as $comment) : ?>
 			<div class="comment">
 				<div class="flex-container-row flex-start">
-					<span><b><?php echo $comment['author']; ?></b> <?php echo $comment['date'] ?></span>
+					<span><b><?php echo $comment['fio']; ?></b> <?php echo $comment['date'] ?></span>
 				</div>
 				<p><?php echo $comment['text'] ?></p>
 			</div>

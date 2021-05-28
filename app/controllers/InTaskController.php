@@ -38,17 +38,19 @@ class InTaskController extends Controller
 		if (!empty($_POST))
 		{
 		}
-		$task = array();
-		$task['id'] = $id;
-		$task['title'] = "title";
-		$task['desc'] = "description";
-		$task['from'] = "from";
-		$task['to'] = "to";
-		$task['deadline'] = "deadline";
-		$task['status'] = "status";
-		$task['DoneStatus'] = "Принять";
-		$task['attachment'] = [['title' => 'file1', 'url' => 'url1.txt'], ['title' => 'file2', 'url' => 'url2.txt']];
-		$task['comments'] = [['author' => 'author1', 'text' => 'texttextext', 'date' => 'date'], ['author' => 'author2', 'text' => 'texttextext', 'date' => 'date']];
+		$task = $this->model->GetTask($id);
+		$task['comments'] = $this->model->GetListInTasks($id);
+
+		// $task = array();
+		// $task['id'] = $id;
+		// $task['title'] = "title";
+		// $task['text'] = "description";
+		// $task['id_from'] = "from";
+		// $task['deadline'] = "deadline";
+		// $task['status'] = "status";
+		// $task['DoneStatus'] = "Принять";
+		// $task['file_way'] = [['title' => 'file1', 'url' => 'url1.txt'], ['title' => 'file2', 'url' => 'url2.txt']];
+		// $task['comments'] = [['author' => 'author1', 'text' => 'texttextext', 'date' => 'date'], ['author' => 'author2', 'text' => 'texttextext', 'date' => 'date']];
 
 		$this->view->generate('task/inTaskView.php', $task);
 		return true;
