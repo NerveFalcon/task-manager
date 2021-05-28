@@ -120,10 +120,10 @@ class Model
 	 * 
 	 * @return array|false Результат
 	 */
-	protected function Fetch($query)
+	protected function Fetch($query, int $assoc = 1)
 	{
 		if ($query != false)
-			return $query->fetch_all(1);
+			return $query->fetch_all($assoc);
 		else
 			return false;
 	}
