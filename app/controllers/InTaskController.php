@@ -39,7 +39,7 @@ class InTaskController extends Controller
 		{
 		}
 		$task = $this->model->GetTask($id);
-		$task['comments'] = $this->model->GetListInTasks($id);
+		$task['comments'] = $this->model->GetComment($id);
 
 		// $task = array();
 		// $task['id'] = $id;
