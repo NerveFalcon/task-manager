@@ -4,4 +4,5 @@ Testing/*
 *.code-workspace
 index.php
 static/configs/*
+static/configs/db.php
 .vscode/*
