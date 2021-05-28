@@ -9,6 +9,6 @@ class OutTaskModel extends TaskModel
 
         $result = $this->db->query("SELECT COUNT(*) as count FROM tasks INNER JOIN workers WHERE workers.id_user = $_SESSION[id] AND tasks.id = workers.id_task");
 
-        return $this-.Fetch($result);
+        return $this->Fetch($result);
     }
 }
