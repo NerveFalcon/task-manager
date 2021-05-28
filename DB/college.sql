@@ -280,6 +280,33 @@ CREATE TABLE `tasks` (
   `id_status` int NOT NULL DEFAULT '5'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Дамп данных таблицы `tasks`
+--
+
+INSERT INTO `tasks` (`id`, `id_from`, `title`, `text`, `deadline`, `file_way`, `id_status`) VALUES
+(1, 1, 'tittle1', 'teteteteette', '2021-11-01', 'fileWay1', 1),
+(2, 1, 'tittle1', '5', '2021-11-01', 'fileWay1', 5),
+(3, 2, 'tittle2', '10', '2021-11-02', 'fileWay2', 5),
+(4, 3, 'tittle3', '15', '2021-11-03', 'fileWay3', 5),
+(5, 4, 'tittle4', '20', '2021-11-04', 'fileWay4', 5),
+(6, 5, 'tittle5', '25', '2021-11-05', 'fileWay5', 5),
+(7, 6, 'tittle6', '30', '2021-11-06', 'fileWay6', 5),
+(8, 7, 'tittle7', '35', '2021-11-07', 'fileWay7', 5),
+(9, 8, 'tittle8', '40', '2021-11-08', 'fileWay8', 5),
+(10, 9, 'tittle9', '45', '2021-11-09', 'fileWay9', 5),
+(11, 10, 'tittle10', '50', '2021-11-10', 'fileWay10', 5),
+(12, 11, 'tittle11', '55', '2021-11-11', 'fileWay11', 5),
+(13, 12, 'tittle12', '60', '2021-11-12', 'fileWay12', 5),
+(14, 13, 'tittle13', '65', '2021-11-13', 'fileWay13', 5),
+(15, 14, 'tittle14', '70', '2021-11-14', 'fileWay14', 5),
+(16, 15, 'tittle15', '75', '2021-11-15', 'fileWay15', 5),
+(17, 16, 'tittle16', '80', '2021-11-16', 'fileWay16', 5),
+(18, 17, 'tittle17', '85', '2021-11-17', 'fileWay17', 5),
+(19, 18, 'tittle18', '90', '2021-11-18', 'fileWay18', 5),
+(20, 19, 'tittle19', '95', '2021-11-19', 'fileWay19', 5),
+(21, 20, 'tittle20', '100', '2021-11-20', 'fileWay20', 5);
+
 -- --------------------------------------------------------
 
 --
