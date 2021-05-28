@@ -16,7 +16,7 @@ body {
     background-image: url("/static/img/BG.png");
     background-size: 100% auto;
     background-position: 0 30%;
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     background-attachment: fixed;
     color: #FFFAFA;
 }
@@ -73,10 +73,10 @@ fieldset {
     padding: 5px;
 }
 
-section:not(.auth) {
+section:not(.auth):not(.createUser) {
     color: #222222;
     background-color: white;
-    box-sizing: content-box;
+    box-sizing: border-box;
 }
 
 
@@ -175,6 +175,18 @@ section:not(.auth) {
     font-size: 64pt;
 }
 
+.font32 {
+    font-size: 32pt;
+}
+
+.font24 {
+    font-size: 24pt;
+}
+
+.font16 {
+    font-size: 16pt;
+}
+
 .pg-btn {
     padding: 30px 10%;
 }
@@ -221,44 +233,84 @@ section:not(.auth) {
 
 /* colors */
 
-.red {
-    color: red;
+.color1 {
+    color: #FF9900;
 }
 
-.bg-red {
-    background-color: red;
+.black {
+    color: black;
+}
+
+.white {
+    color: white;
+}
+
+.red {
+    color: red;
 }
 
 .green {
     color: green;
 }
 
-.bg-green {
-    background-color: green;
+.blue {
+    color: blue;
 }
 
 .brown {
     color: brown;
 }
 
-.background-brown {
-    background-color: brown;
-}
-
 .gray {
     color: gray;
-}
-
-.bg-gray {
-    background-color: gray;
 }
 
 .yellow {
     color: yellow;
 }
 
+.orange {
+    color: orange;
+}
+
+.bg-color1 {
+    background-color: #FF9900;
+}
+
+.bg-white {
+    background-color: white;
+}
+
+.bg-black {
+    background-color: black;
+}
+
+.bg-red {
+    background-color: red;
+}
+
+.bg-green {
+    background-color: green;
+}
+
+.bg-blue {
+    background-color: blue;
+}
+
+.bg-brown {
+    background-color: brown;
+}
+
+.bg-gray {
+    background-color: gray;
+}
+
 .bg-yellow {
     background-color: yellow;
+}
+
+.bg-orange {
+    background-color: orange;
 }
 
 
@@ -277,6 +329,25 @@ section:not(.auth) {
 
 
 /* Other */
+
+.linkInTasks:hover .vip-menu {
+    display: block;
+}
+
+.vip-menu {
+    display: none;
+    position: absolute;
+    background-color: gray;
+    border-bottom-left-radius: 40%;
+    border-bottom-right-radius: 40%;
+    padding-top: 10px;
+}
+
+.vip-item {
+    display: block;
+    box-sizing: border-box;
+    margin: 10px;
+}
 
 .auth fieldset {
     background-color: #222222;
@@ -379,23 +450,76 @@ section:not(.auth) {
 }
 
 .tasks .links .selected {
-    background-color: #2419B2;
+    background-color: #FF9900;
 }
 
-.tasks .task {
+.filter .element {
+    padding: 1px 10px;
+    content: " ";
+    margin: 1px;
+}
+
+.filter .element:first-child {
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+}
+
+.filter .element:last-child {
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+    margin-right: 10%;
+}
+
+.task {
+    position: relative;
     border: 1px solid #FF9900;
     border-radius: 5px;
-    margin: 5px;
+    margin: 25px 10%;
+}
+
+.notify {
+    position: absolute;
+    top: -15px;
+    border: 1px black solid;
+    border-radius: 50%;
+}
+
+.notify-left {
+    left: -15px;
+    padding: 5pt 10pt;
+}
+
+.notify-right {
+    right: -15px;
+    padding: 3pt 5pt;
 }
 
 .task .top {
-    margin: 20px 15px;
+    box-sizing: border-box;
+    padding: 20px 15px;
 }
 
 .task .desc {
     margin: 0 15px;
     padding: 0 2%;
     width: 80%;
+}
+
+.userList {
+    margin: auto;
+}
+
+.userList table {
+    margin: auto;
+    width: 100%;
+}
+
+.userList .add {
+    margin: 10px 10px;
+}
+
+.createUser select {
+    width: 45%;
 }
 
 
@@ -407,16 +531,3 @@ section:not(.auth) {
     place-items: stretch;
     place-content: stretch;
 } */
-
-.vip-menu{
-    display: none;
-    position: absolute;
-    background-color: #222222;
-    text-align: left;
-}
-.vip-item{
-    display: block;
-}
-#linkInTasks:hover .vip-menu{
-    display: block;
-}

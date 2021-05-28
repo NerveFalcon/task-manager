@@ -7,8 +7,12 @@ class InTaskController extends Controller
 		$this->model = new InTaskModel();
 	}
 
-	public function ActionList(int $page = 1)
+	public function ActionList(string $filter = null, int $page = 1)
 	{
+		if (is_null($filter))
+		{
+			header("Location: /" . Route::GetURI() . "/await/$page");
+		}
 		$countPages = $this->model->GetCountInTasks();
 		// echo $countPages;
 		// return true;
@@ -19,6 +23,10 @@ class InTaskController extends Controller
 			$tasks[$key]['type'] = "in";
 			$tasks[$key]['OtherStatus'] = "На коррекцию";
 			$tasks[$key]['DoneStatus'] = "Принять";
+			$tasks[$key]['seen'] = rand(0, 1);
+			if (rand(0, 1))
+				$tasks[$key]['deadline'] = "2021-6-5";
+			$tasks[$key]['diff'] = (new DateTime($tasks[$key]['deadline']))->diff(new DateTime)->format("%a");
 		}
 
 		$this->view->Generate('task/listView.php', [$pages, $tasks]);
@@ -27,10 +35,6 @@ class InTaskController extends Controller
 
 	public function ActionTask(int $id)
 	{
-		if (empty($id))
-		{
-			return false;
-		}
 		if (!empty($_POST))
 		{
 		}
@@ -43,7 +47,7 @@ class InTaskController extends Controller
 		$task['deadline'] = "deadline";
 		$task['status'] = "status";
 		$task['DoneStatus'] = "Принять";
-		$task['attachment'] = [['title' => 'file1', 'url' => 'url1'], ['title' => 'file2', 'url' => 'url2']];
+		$task['attachment'] = [['title' => 'file1', 'url' => 'url1.txt'], ['title' => 'file2', 'url' => 'url2.txt']];
 		$task['comments'] = [['author' => 'author1', 'text' => 'texttextext', 'date' => 'date'], ['author' => 'author2', 'text' => 'texttextext', 'date' => 'date']];
 
 		$this->view->generate('task/inTaskView.php', $task);

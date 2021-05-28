@@ -5,3 +5,4 @@ Testing/*
 index.php
 static/configs/*
 static/configs/db.php
+.vscode/*
