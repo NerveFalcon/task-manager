@@ -53,6 +53,20 @@ fromphp {
     font-style: italic;
 }
 
+table {
+    margin: auto;
+    width: 100%;
+}
+
+td input {
+    box-sizing: border-box;
+    width: 100%;
+}
+
+td input:focus {
+    border: 1px solid black;
+}
+
 input {
     margin: 5px 0;
 }
@@ -507,11 +521,6 @@ section:not(.auth):not(.createUser) {
 
 .userList {
     margin: auto;
-}
-
-.userList table {
-    margin: auto;
-    width: 100%;
 }
 
 .userList .add {

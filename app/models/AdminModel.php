@@ -35,6 +35,27 @@ class AdminModel extends Model
 		return $query->fetch_all(1);
 	}
 
+	public function GetUserById(int $id)
+	{
+		$this->ThisSqlConnect();
+
+		$query = $this->db->query("select * from users where id = '$id'");
+
+		return $this->Fetch($query)[0];
+	}
+
+	/**
+	 * Удаление пользователя
+	 * 
+	 * @param int $id идентификатор пользователя
+	 * 
+	 * @return bool Статус выполнения
+	 */
+	public function DeleteUser(int $id): bool
+	{
+		return $this->Delete("users", $id);
+	}
+
 	#endregion
 
 	#region Position
@@ -44,7 +65,7 @@ class AdminModel extends Model
 	 * 
 	 * @return int
 	 */
-	public function CountPosition():int
+	public function CountPosition(): int
 	{
 		$this->ThisSqlConnect();
 
@@ -68,6 +89,20 @@ class AdminModel extends Model
 
 		$query = $this->db->query("select * from posts limit $indent, 20 ");
 		return $query->fetch_all(1);
+	}
+
+	public function GetPositionById(int $id)
+	{
+		$this->ThisSqlConnect();
+
+		$query = $this->db->query("select * from posts where id = '$id'");
+
+		return $this->Fetch($query)[0];
+	}
+
+	public function DeletePosition(int $id)
+	{
+		$this->Delete("posts", $id);
 	}
 
 	#endregion
