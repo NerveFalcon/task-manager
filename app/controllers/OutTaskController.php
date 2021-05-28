@@ -13,7 +13,7 @@ class OutTaskController extends Controller
 		{
 			header("Location: /" . Route::GetURI() . "/await/$page");
 		}
-		if (count(array_diff(explode('+', $filter), $this->model->GetAllStatus())) > 0)
+		if (count(array_diff(explode('+', $filter), $this->model->GetEnStatus())) > 0)
 		{
 			return false;
 		}

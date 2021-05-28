@@ -26,8 +26,8 @@ class View
 		$result = "<div class=\"filter Tright\">";
 		foreach ($status as $stat)
 		{
-			$href = TaskModel::FilterSetting($stat) . "/$currentPage";
-			$color = TaskModel::FilterColor($stat);
+			$href = TaskModel::FilterSetting($stat['en']) . "/$currentPage";
+			$color = $stat['color'];
 			$result .= "<a class=\"element bg-$color\" href=\"../$href\"></a> ";
 		}
 		$result .= "</div>";
