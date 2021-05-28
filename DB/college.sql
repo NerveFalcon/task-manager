@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Май 28 2021 г., 19:47
+-- Время создания: Май 28 2021 г., 21:48
 -- Версия сервера: 8.0.25
 -- Версия PHP: 7.3.27-1~deb10u1
 
@@ -248,8 +248,8 @@ INSERT INTO `rank` (`id_head`, `id_sub`) VALUES
 CREATE TABLE `status` (
   `id` int NOT NULL,
   `ru` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `en` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `color` text COLLATE utf8mb4_unicode_ci NOT NULL
+  `en` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `color` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -388,6 +388,23 @@ CREATE TABLE `workers` (
   `id_task` int NOT NULL,
   `id_user` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `workers`
+--
+
+INSERT INTO `workers` (`id_task`, `id_user`) VALUES
+(2, 1),
+(3, 1),
+(4, 1),
+(5, 1),
+(6, 1),
+(10, 1),
+(12, 1),
+(13, 1),
+(18, 1),
+(20, 1),
+(21, 1);
 
 --
 -- Индексы сохранённых таблиц
