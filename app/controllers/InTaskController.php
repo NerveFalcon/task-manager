@@ -13,6 +13,10 @@ class InTaskController extends Controller
 		{
 			header("Location: /" . Route::GetURI() . "/await/$page");
 		}
+		if (count(array_diff(explode('+', $filter), $this->model->GetEnStatus())) > 0)
+		{
+			return false;
+		}
 		$countPages = $this->model->GetCountInTasks();
 		// echo $countPages;
 		// return true;

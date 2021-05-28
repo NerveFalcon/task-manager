@@ -15,7 +15,7 @@ class InTaskModel extends TaskModel
     public function GetListInTasks(int $page)
     {
         $showTasks = 4;
-        $res = $this->db->query("SELECT tasks.*, status.en as status FROM (tasks INNER JOIN workers ON workers.id_user = $_SESSION[id] AND tasks.id = workers.id_task) INNER JOIN status ON status.id = tasks.id_status ORDER BY tasks.deadline LIMIT " . ($page - 1)*$showTasks . "," . $showTasks . "");
+        $res = $this->db->query("SELECT tasks.*, status.ru as status FROM (tasks INNER JOIN workers ON workers.id_user = $_SESSION[id] AND tasks.id = workers.id_task) INNER JOIN status ON status.id = tasks.id_status ORDER BY tasks.deadline LIMIT " . ($page - 1)*$showTasks . "," . $showTasks . "");
 
         return $this->Fetch($res);
     }
@@ -48,11 +48,6 @@ class InTaskModel extends TaskModel
         return $this->Fetch($res)[0];
     }
 
-    public function GetComment(int $id)
-    {
-        $res = $this->db->query("SELECT comments.text as text, comments.date as date, users.fio as fio FROM comments INNER JOIN users ON comments.id_from = users.id AND commets.id_task = $id ORDER BY comments.date");
-
-        return $this->Fetch($res);
-    }
+    
 
 }

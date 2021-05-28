@@ -3,7 +3,7 @@
 		<h1 class="flex-item flex-item-row-first font32	"><?php echo $params['title'] ?></h1>
 		<span class="flex-item flex-item-row-last"><?php echo $params['status'] ?></span>
 	</div>
-	<span><?php echo $params['id_from'] ?></span>
+	<span><?php echo $params['fio'] ?></span>
 	<div class="desc">
 		<p><?php echo $params['text'] ?></p>
 		<?php if (isset($params['file_way'])) : ?>

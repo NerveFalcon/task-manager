@@ -82,4 +82,11 @@ class TaskModel extends Model
 		# code...	// id пользователя брать из $_SESSION['id']
 		return $this->Insert("comments", []);
 	}
+	
+	public function GetComment(int $id)
+    {
+        $res = $this->db->query("SELECT comments.text as text, comments.date as date, users.fio as fio FROM comments INNER JOIN users ON comments.id_from = users.id AND commets.id_task = $id ORDER BY comments.date");
+
+        return $this->Fetch($res);
+    }
 }
