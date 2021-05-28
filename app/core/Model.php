@@ -120,7 +120,7 @@ class Model
 	 * 
 	 * @return array|false Результат
 	 */
-	protected function Fetch(mysqli_result $query)
+	protected function Fetch($query)
 	{
 		if ($query != false)
 			return $query->fetch_all(1);
