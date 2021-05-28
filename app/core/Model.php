@@ -1,7 +1,7 @@
 <?php
 class Model
 {
-	private $db = null;
+	protected $db = null;
 
 	#region static
 

@@ -12,7 +12,7 @@ $params = $params[1];
 		<?php foreach ($params as $task) : ?>
 			<?php ($task['diff'] > 30) ? $left = "Осталось больше месяца" : $left = "Осатлось " . $task['diff'] . " дней"; ?>
 			<div class="task">
-				<div class="bg-color1 notify notify-left <?php if (!$task['seen']) echo "unseen"; ?>">!</div>
+				<div class="bg-color1 notify notify-left <?php if (!$task['seen']) echo "hidden"; ?>">!</div>
 				<div class="bg-color1 notify notify-right <?php if ($task['diff'] < 30) echo "bg-red"; ?>">
 					<abbr title="<?php echo "$task[deadline] $left"; ?>">
 						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 36 36" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);">

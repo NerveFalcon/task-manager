@@ -16,7 +16,7 @@ body {
     background-image: url("/static/img/BG.png");
     background-size: 100% auto;
     background-position: 0 30%;
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     background-attachment: fixed;
     color: #FFFAFA;
 }
@@ -73,7 +73,7 @@ fieldset {
     padding: 5px;
 }
 
-section:not(.auth) {
+section:not(.auth):not(.createUser) {
     color: #222222;
     background-color: white;
     box-sizing: border-box;
@@ -330,7 +330,7 @@ section:not(.auth) {
 
 /* Other */
 
-#linkInTasks:hover .vip-menu {
+.linkInTasks:hover .vip-menu {
     display: block;
 }
 
@@ -494,10 +494,6 @@ section:not(.auth) {
     padding: 3pt 5pt;
 }
 
-.unseen {
-    display: none;
-}
-
 .task .top {
     box-sizing: border-box;
     padding: 20px 15px;
@@ -507,6 +503,23 @@ section:not(.auth) {
     margin: 0 15px;
     padding: 0 2%;
     width: 80%;
+}
+
+.userList {
+    margin: auto;
+}
+
+.userList table {
+    margin: auto;
+    width: 100%;
+}
+
+.userList .add {
+    margin: 10px 10px;
+}
+
+.createUser select {
+    width: 45%;
 }
 
 
