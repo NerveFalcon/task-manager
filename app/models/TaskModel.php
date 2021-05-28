@@ -15,6 +15,9 @@ class TaskModel extends Model
 	 */
 	public static function GetAllStatus(): array
 	{
+		$db = self::SqlConnect();
+        $res = $db->query("SELECT tasks.*, status.name as status FROM (tasks INNER JOIN workers ON workers.id = $_SESSION[id] AND tasks.id = workers.id_task) INNER JOIN status ON status.id = tasks.id_status ORDER BY tasks.deadline LIMIT " . ($page - 1)*$showTasks . "," . $showTasks . "");
+
 		return array(
 			"await",
 			"performed",
