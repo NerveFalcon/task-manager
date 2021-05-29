@@ -14,6 +14,7 @@ class InTaskModel extends TaskModel
      */
     public function GetListInTasks(int $page, $filter, $showTasks = 4)
     {
+        $this->ThisSqlConnect();
         $filter = "'" . str_replace('+', '\', \'', $filter) . "'";
         $res = $this->db->query("SELECT tasks.*, status.ru as status, status.but_in as butIn, status.but_out as butOut FROM (tasks INNER JOIN workers ON workers.id_user = $_SESSION[id] AND tasks.id = workers.id_task) INNER JOIN status ON status.id = tasks.id_status AND status.en IN ($filter) ORDER BY tasks.deadline LIMIT " . ($page - 1)*$showTasks . "," . $showTasks . "");
 		var_dump($filter);
@@ -48,7 +49,7 @@ class InTaskModel extends TaskModel
     }
     public function GetTask(int $id)
     {
-        $res = $this->db->query("SELECT tasks.*, status.ru as status, users.fio as fio FROM (tasks INNER JOIN users ON  tasks.id_from = users.id) INNER JOIN status ON status.id = tasks.id_status AND tasks.id = $id");
+        $res = $this->db->query("SELECT tasks.*, status.ru as status, status.but_in as butIn, status.but_out as butOut users.fio as fio FROM (tasks INNER JOIN users ON  tasks.id_from = users.id) INNER JOIN status ON status.id = tasks.id_status AND tasks.id = $id");
 
         return $this->Fetch($res)[0];
     }
