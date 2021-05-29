@@ -27,17 +27,17 @@ class InTaskModel extends TaskModel
         $res = $this->db->query("SELECT COUNT(*) as count FROM (tasks INNER JOIN workers ON workers.id_user = $_SESSION[id] AND tasks.id = workers.id_task) INNER JOIN status ON tasks.id_status = status.id AND status.en IN ($filter)");
 
         return $this->Fetch($res)[0]['count'];
-        $input = array();
-        for ($i=1; $i <= 20; $i++) { 
-            // $input['id_from'] = $i;
-            // $input['title'] = "tittle$i";
-            // $input['text']  = str_repeat('texttext ', 100);
-            // $input['deadline'] = "2021-11-$i";
-            // $input['file_way'] = "fileWay$i";
-            $input['id_status'] = rand(1, 5);
+        // $input = array();
+        // for ($i=1; $i <= 20; $i++) { 
+        //     // $input['id_from'] = $i;
+        //     // $input['title'] = "tittle$i";
+        //     // $input['text']  = str_repeat('texttext ', 100);
+        //     // $input['deadline'] = "2021-11-$i";
+        //     // $input['file_way'] = "fileWay$i";
+        //     $input['id_status'] = rand(1, 5);
 
-            $this->UpdateOne("tasks", $input, $i);
-        }
+        //     $this->UpdateOne("tasks", $input, $i);
+        // }
         // for ($i = 1; $i <= 200; $i++)
         // {
         //     $input['id_task'] = rand(1,21);
@@ -51,7 +51,5 @@ class InTaskModel extends TaskModel
 
         return $this->Fetch($res)[0];
     }
-
-    
 
 }
