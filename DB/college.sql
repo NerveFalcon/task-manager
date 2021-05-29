@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost:3306
--- Время создания: Май 29 2021 г., 08:00
+-- Время создания: Май 29 2021 г., 11:02
 -- Версия сервера: 5.7.24
 -- Версия PHP: 7.2.19
 
@@ -33,6 +33,34 @@ CREATE TABLE `chat` (
   `text` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `chat`
+--
+
+INSERT INTO `chat` (`id`, `id_user`, `text`, `date`) VALUES
+(1, 19, 'sgasgd', '2021-05-29 11:45:00'),
+(2, 1, 'text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text ', '2021-05-29 11:51:02'),
+(3, 2, 'text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text ', '2021-05-29 11:51:02'),
+(4, 3, 'text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text ', '2021-05-29 11:51:02'),
+(5, 4, 'text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text ', '2021-05-29 11:51:02'),
+(6, 5, 'text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text text ', '2021-05-29 11:51:02'),
+(7, 1, '125', '2021-05-29 12:22:20'),
+(8, 1, '125', '2021-05-29 12:22:51'),
+(9, 1, 'Hello работяги', '2021-05-29 12:23:01'),
+(10, 1, 'poka работяги', '2021-05-29 12:32:22'),
+(11, 1, 'poka работяги', '2021-05-29 12:36:14'),
+(12, 1, 'Как дела?', '2021-05-29 12:37:19'),
+(13, 1, 'Как дела?', '2021-05-29 12:37:22'),
+(14, 1, 'test', '2021-05-29 12:37:57'),
+(15, 1, 'test', '2021-05-29 12:38:01'),
+(16, 1, 'test', '2021-05-29 12:41:22'),
+(17, 1, 'test', '2021-05-29 12:42:21'),
+(18, 1, 'test 2', '2021-05-29 12:42:29'),
+(19, 1, 'gasf', '2021-05-29 13:51:50'),
+(20, 53, 'fsdvs', '2021-05-29 13:52:20'),
+(21, 53, 'sfssg', '2021-05-29 13:53:30'),
+(22, 1, 'sd', '2021-05-29 14:00:54');
 
 -- --------------------------------------------------------
 
@@ -326,7 +354,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `fio`, `email`, `pass`) VALUES
-(1, 'Абрамова Лариса Сергеевна', NULL, NULL),
+(1, 'Абрамова Лариса Сергеевна', 'w@w', 'w'),
 (2, 'Агранова Светлана Геннадьевна', NULL, NULL),
 (3, 'Алексеева Наталия Николаевна', NULL, NULL),
 (4, 'Анисифоров Алексей Борисович', NULL, NULL),
@@ -378,7 +406,9 @@ INSERT INTO `users` (`id`, `fio`, `email`, `pass`) VALUES
 (50, 'Цой Ден Хи', NULL, NULL),
 (51, 'Шавлюга Екатерина Владимировна', NULL, NULL),
 (52, 'Ильин Валерий Иванович ', NULL, NULL),
-(53, 'test', 'test@t', 'test');
+(53, 'test', 'test@t', 'test'),
+(54, '123 123 123', 'qwe@1', 'qwe'),
+(55, 'Маша Маша Маша', 'q@q', 'q');
 
 -- --------------------------------------------------------
 
@@ -483,7 +513,7 @@ ALTER TABLE `workers`
 -- AUTO_INCREMENT для таблицы `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT для таблицы `comments`
@@ -513,7 +543,7 @@ ALTER TABLE `tasks`
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=56;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
