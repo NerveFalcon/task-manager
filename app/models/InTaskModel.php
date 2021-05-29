@@ -23,12 +23,12 @@ class InTaskModel extends TaskModel
     {
         $res = $this->db->query("SELECT COUNT(*) as count FROM tasks INNER JOIN workers WHERE workers.id_user = $_SESSION[id] AND tasks.id = workers.id_task");
 
-        return $res->fetch_all(1)[0]['count'];
+        // return $res->fetch_all(1)[0]['count'];
         $input = array();
         for ($i=1; $i <= 20; $i++) { 
             // $input['id_from'] = $i;
             // $input['title'] = "tittle$i";
-            $input['text']  = "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext";
+            $input['text']  = str_repeat('texttext ', 100);
             // $input['deadline'] = "2021-11-$i";
             // $input['file_way'] = "fileWay$i";
             $this->UpdateOne("tasks", $input, $i);
