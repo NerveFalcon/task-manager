@@ -22,6 +22,13 @@ class AdminController extends Controller
 
 	public function ActionUserEdit(int $id)
 	{
+		if (!empty($_POST))
+		{
+			$this->model->EditUser($id);
+			header("Location: /user");
+			return true;
+		}
+
 		$user = $this->model->GetUserById($id);
 
 		$this->view->Generate("admin/editView.php", [$user, "пользователя"]);
@@ -59,6 +66,13 @@ class AdminController extends Controller
 
 	public function ActionPositionEdit(int $id)
 	{
+		if (!empty($_POST))
+		{
+			$this->model->EditPosition($id);
+			header("Location: /position");
+			return true;
+		}
+
 		$position = $this->model->GetPositionById($id);
 
 		$this->view->Generate("admin/editView.php", [$position, "должности"]);
@@ -67,6 +81,13 @@ class AdminController extends Controller
 
 	public function ActionPositionCreate()
 	{
+		if (!empty($_POST))
+		{
+			$this->model->AddPosition();
+			header("Location: /position");
+			return true;
+		}
+
 		$position = $this->model->GetPositionById(1);
 
 		$this->view->Generate("admin/positionCreateView.php", $position);

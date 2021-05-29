@@ -44,6 +44,14 @@ class AdminModel extends Model
 		return $this->Fetch($query)[0];
 	}
 
+	public function EditUser(int $id)
+	{
+		$this->ThisSqlConnect();
+		$post = $this->GetPost();
+		$this->UpdateOne("users", $post, $id);
+
+	}
+
 	/**
 	 * Удаление пользователя
 	 * 
@@ -98,6 +106,21 @@ class AdminModel extends Model
 		$query = $this->db->query("select * from posts where id = '$id'");
 
 		return $this->Fetch($query)[0];
+	}
+
+	public function AddPosition()
+	{
+		$this->ThisSqlConnect();
+		$post = $this->GetPost();
+		$this->Insert("posts", $post);
+	}
+
+	public function EditPosition(int $id)
+	{
+		$this->ThisSqlConnect();
+		$post = $this->GetPost();
+		$this->UpdateOne("posts", $post, $id);
+
 	}
 
 	public function DeletePosition(int $id)
