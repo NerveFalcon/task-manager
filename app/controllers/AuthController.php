@@ -23,7 +23,7 @@ class AuthController extends Controller
 			{
 				$user = $this->model->Getuser($input['email']);
 				$_SESSION['user'] = $user['fio'];
-				$SESSION['id'] = $user['id'];
+				$_SESSION['id'] = $user['id'];
 				header("Location: /");
 				return true;
 			}
