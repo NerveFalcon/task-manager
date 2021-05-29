@@ -1,5 +1,5 @@
 <?php
-$twoWays = $params['status'] == "await" || $params['status'] == "verified";
+$twoWays = $params['status'] == "await" || $params['status'] == "performed";
 ?>
 <section class="inTask task">
 	<div class="top flex-container-row">

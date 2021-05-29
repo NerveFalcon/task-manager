@@ -39,7 +39,6 @@ $params = $params[1];
 						<?php if (!empty($params['DoneStatus'])) : ?>
 							<a href="/chStatus/<?php echo $params['id'] ?>" class="button flex-item"><?php echo $params['DoneStatus'] ?></a>
 						<?php endif; ?>
-						<a href="#" class="button"><?php echo $task['DoneStatus'] ?></a>
 					</div>
 				</div>
 			</div>
