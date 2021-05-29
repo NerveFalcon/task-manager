@@ -7,7 +7,7 @@ class InTaskController extends Controller
 		$this->model = new InTaskModel();
 	}
 
-	public function ActionList(string $filter = null, int $page = 1)
+	public function ActionList(string $filter = null, int $page = 1, $showTasks = 4)
 	{
 		if (is_null($filter))
 		{
@@ -17,11 +17,13 @@ class InTaskController extends Controller
 		{
 			return false;
 		}
-		$countPages = $this->model->GetCountInTasks();
+		$countPages = $this->model->GetCountInTasks($filter);
 		// echo $countPages;
 		// return true;
+
+		$countPages = ceil($countPages / $showTasks);
 		$pages = [$countPages, $page];
-		$tasks = $this->model->GetListInTasks($page);
+		$tasks = $this->model->GetListInTasks($page, $filter);
 		foreach ($tasks as $key => $task)
 		{
 			$tasks[$key]['type'] = "in";
