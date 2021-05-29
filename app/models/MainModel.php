@@ -6,7 +6,7 @@ class MainModel extends Model
     }
 
     public function GetMessages() {
-        $res = $this->db->query("SELECT chat.text, chat.date, users.fio FROM chat INNER JOIN users ON chat.id_user = users.id ORDER BY chat.date DESC");
+        $res = $this->db->query("SELECT chat.text, chat.date, users.fio, users.id FROM chat INNER JOIN users ON chat.id_user = users.id ORDER BY chat.date DESC");
 
         return $this->Fetch($res);
     }
