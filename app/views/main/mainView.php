@@ -11,7 +11,7 @@
 	</div>
 	<form action="" method="post">
 		<fieldset>
-			<input type="text" placeholder="Введите сообщение">
+			<input type="text" name="text" placeholder="Введите сообщение">
 			<input type="submit" value="Отправить">
 		</fieldset>
 	</form>
