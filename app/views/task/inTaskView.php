@@ -1,3 +1,6 @@
+<?php
+$twoWays = $params['status'] == "await" || $params['status'] == "verified";
+?>
 <section class="inTask task">
 	<div class="top flex-container-row">
 		<h1 class="flex-item flex-item-row-first font32	"><?php echo $params['title'] ?></h1>
@@ -16,6 +19,7 @@
 	</div>
 	<div class="comments">
 		<h3>Комментарии</h3>
+		<br>
 		<?php foreach ($params['comments'] as $comment) : ?>
 			<div class="comment">
 				<div class="flex-container-row flex-start">
@@ -24,13 +28,21 @@
 				<p><?php echo $comment['text'] ?></p>
 			</div>
 		<?php endforeach; ?>
-		<form action="" method="post">
-			<input type="text" multiple>
-			<input type="submit" value="Комментировать">
+		<form class="comment-form Tright" action="<?php if ($twoWays) ?>" method="post">
+			<textarea name="comment" rows="10"></textarea>
+			<div class="Tright">
+				<?php if ($twoWays) : ?>
+					<input type="submit" name="action" value="На корректировку">
+				<?php else : ?>
+					<input type="submit" name="action" value="Комментировать">
+				<?php endif; ?>
+			</div>
 		</form>
 	</div>
 	<div class="top flex-container-row flex-around">
 		<a href="/inTasks" class="button flex-item">Вернуться</a>
-		<a href="#" class="button flex-item"><?php echo $params['DoneStatus'] ?></a>
+		<?php if (!empty($params['DoneStatus'])) : ?>
+			<a href="/chStatus/<?php echo $params['id']?>" class="button flex-item"><?php echo $params['DoneStatus'] ?></a>
+		<?php endif; ?>
 	</div>
 </section>

@@ -23,6 +23,16 @@ class Model
 	}
 
 	/**
+	 * Обработанный $_POST
+	 * 
+	 * @return array
+	 */
+	public static function GetPost()
+	{
+		return self::InputHandlerRecursive($_POST);
+	}
+
+	/**
 	 * Обработчик строки или массива строк
 	 * 
 	 * @param string|array $input Входная строка
@@ -51,6 +61,7 @@ class Model
 		$subject = trim($subject);
 		$subject = str_replace('\'', '"', $subject);
 		$subject = htmlspecialchars($subject);
+		$subject = addslashes($subject);
 
 		return $subject;
 	}
