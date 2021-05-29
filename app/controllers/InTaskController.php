@@ -26,7 +26,9 @@ class InTaskController extends Controller
 		{
 			$tasks[$key]['type'] = "in";
 			$tasks[$key]['OtherStatus'] = "На коррекцию";
-			$tasks[$key]['DoneStatus'] = "Принять";
+			$tasks[$key]['short_text'] = substr($task['text'], 0, 253) . "...";
+			$tasks[$key]['DoneStatus'] = "";
+			if (!empty($tasks[$key]['butIn'])) $tasks[$key]['DoneStatus'] = $tasks[$key]['butIn'];
 			$tasks[$key]['seen'] = rand(0, 1);
 			if (rand(0, 1))
 				$tasks[$key]['deadline'] = "2021-6-5";
@@ -52,6 +54,7 @@ class InTaskController extends Controller
 		// $task['id_from'] = "from";
 		// $task['deadline'] = "deadline";
 		// $task['status'] = "status";
+		
 		// $task['DoneStatus'] = "Принять";
 		// $task['file_way'] = [['title' => 'file1', 'url' => 'url1.txt'], ['title' => 'file2', 'url' => 'url2.txt']];
 		// $task['comments'] = [['author' => 'author1', 'text' => 'texttextext', 'date' => 'date'], ['author' => 'author2', 'text' => 'texttextext', 'date' => 'date']];

@@ -29,12 +29,14 @@ $params = $params[1];
 					<span class="status flex-item flex-item-row-last"><?php echo $task['status'] ?></span>
 				</div>
 				<div class="desc">
-					<?php echo $task['text'] ?>
+					<?php $key = (strlen($task['text']) > 256) ? 'short_text' : 'text'; ?>
+					<?php echo $task[$key]; ?>
+					<!-- <?php var_dump($task); ?> -->
 				</div>
 				<div class="top flex-container-row flex-between">
 					<a href="/<?php echo $task['type']; ?>Task/<?php echo $task['id'] ?>" class="button flex-item flex-item-row-first">Подробнее</a>
 					<div class="flex-item flex-item-row-last">
-						<a href="#" class="button"><?php echo $task['OtherStatus'] ?></a>
+						<!-- <a href="#" class="button"><?php echo $task['OtherStatus'] ?></a> -->
 						<a href="#" class="button"><?php echo $task['DoneStatus'] ?></a>
 					</div>
 				</div>
