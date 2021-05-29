@@ -22,7 +22,7 @@ class AuthController extends Controller
 			if($valid)
 			{
 				$_SESSION['user'] = $this->model->GetFIO($input['email']);
-				setcookie("c", md5($input['password']), time()+60*60*24);
+				setcookie("c", $input['email'], time()+60*60*24);
 				header("Location: /");
 				return true;
 			}

