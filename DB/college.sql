@@ -2,10 +2,10 @@
 -- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Хост: localhost
--- Время создания: Май 28 2021 г., 21:48
--- Версия сервера: 8.0.25
--- Версия PHP: 7.3.27-1~deb10u1
+-- Хост: localhost:3306
+-- Время создания: Май 29 2021 г., 08:00
+-- Версия сервера: 5.7.24
+-- Версия PHP: 7.2.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -28,9 +28,9 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `chat` (
-  `id` int NOT NULL,
-  `id_user` int NOT NULL,
-  `text` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL,
+  `text` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -41,10 +41,10 @@ CREATE TABLE `chat` (
 --
 
 CREATE TABLE `comments` (
-  `id` int NOT NULL,
-  `id_task` int NOT NULL,
-  `id_from` int DEFAULT NULL,
-  `text` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` int(11) NOT NULL,
+  `id_task` int(11) NOT NULL,
+  `id_from` int(11) DEFAULT NULL,
+  `text` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -55,8 +55,8 @@ CREATE TABLE `comments` (
 --
 
 CREATE TABLE `post` (
-  `id_user` int NOT NULL,
-  `id_post` int NOT NULL
+  `id_user` int(11) NOT NULL,
+  `id_post` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -146,8 +146,8 @@ INSERT INTO `post` (`id_user`, `id_post`) VALUES
 --
 
 CREATE TABLE `posts` (
-  `id` int NOT NULL,
-  `title` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
+  `id` int(11) NOT NULL,
+  `title` text COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -195,8 +195,8 @@ INSERT INTO `posts` (`id`, `title`) VALUES
 --
 
 CREATE TABLE `rank` (
-  `id_head` int NOT NULL,
-  `id_sub` int NOT NULL
+  `id_head` int(11) NOT NULL,
+  `id_sub` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -246,23 +246,24 @@ INSERT INTO `rank` (`id_head`, `id_sub`) VALUES
 --
 
 CREATE TABLE `status` (
-  `id` int NOT NULL,
-  `ru` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `en` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `color` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL
+  `id` int(11) NOT NULL,
+  `ru` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `en` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `color` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `but_in` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `but_out` text COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Дамп данных таблицы `status`
 --
 
-INSERT INTO `status` (`id`, `ru`, `en`, `color`) VALUES
-(1, 'Ожидается', 'await', 'orange'),
-(2, 'В работе', 'performed', 'blue'),
-(3, 'На проверке', 'verified', 'red'),
-(4, 'Выполнена', 'done', 'green'),
-(5, 'Черновик', 'draft', 'gray'),
-(6, 'Архив', 'archive', 'black');
+INSERT INTO `status` (`id`, `ru`, `en`, `color`, `but_in`, `but_out`) VALUES
+(1, 'Ожидается', 'await', 'orange', 'Принять', ''),
+(2, 'В работе', 'performed', 'blue', 'Выполнить', ''),
+(3, 'На проверке', 'verified', 'red', '', 'Принять'),
+(4, 'Выполнена', 'done', 'green', '', ''),
+(5, 'Черновик', 'draft', 'gray', '', 'Отправить');
 
 -- --------------------------------------------------------
 
@@ -271,13 +272,13 @@ INSERT INTO `status` (`id`, `ru`, `en`, `color`) VALUES
 --
 
 CREATE TABLE `tasks` (
-  `id` int NOT NULL,
-  `id_from` int NOT NULL,
-  `title` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `text` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id` int(11) NOT NULL,
+  `id_from` int(11) NOT NULL,
+  `title` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `text` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `deadline` date NOT NULL,
-  `file_way` text CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `id_status` int NOT NULL DEFAULT '5'
+  `file_way` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `id_status` int(11) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -285,26 +286,26 @@ CREATE TABLE `tasks` (
 --
 
 INSERT INTO `tasks` (`id`, `id_from`, `title`, `text`, `deadline`, `file_way`, `id_status`) VALUES
-(1, 1, 'tittle1', 'teteteteette', '2021-11-01', 'fileWay1', 1),
-(2, 1, 'tittle1', '5', '2021-11-01', 'fileWay1', 5),
-(3, 2, 'tittle2', '10', '2021-11-02', 'fileWay2', 5),
-(4, 3, 'tittle3', '15', '2021-11-03', 'fileWay3', 5),
-(5, 4, 'tittle4', '20', '2021-11-04', 'fileWay4', 5),
-(6, 5, 'tittle5', '25', '2021-11-05', 'fileWay5', 5),
-(7, 6, 'tittle6', '30', '2021-11-06', 'fileWay6', 5),
-(8, 7, 'tittle7', '35', '2021-11-07', 'fileWay7', 5),
-(9, 8, 'tittle8', '40', '2021-11-08', 'fileWay8', 5),
-(10, 9, 'tittle9', '45', '2021-11-09', 'fileWay9', 5),
-(11, 10, 'tittle10', '50', '2021-11-10', 'fileWay10', 5),
-(12, 11, 'tittle11', '55', '2021-11-11', 'fileWay11', 5),
-(13, 12, 'tittle12', '60', '2021-11-12', 'fileWay12', 5),
-(14, 13, 'tittle13', '65', '2021-11-13', 'fileWay13', 5),
-(15, 14, 'tittle14', '70', '2021-11-14', 'fileWay14', 5),
-(16, 15, 'tittle15', '75', '2021-11-15', 'fileWay15', 5),
-(17, 16, 'tittle16', '80', '2021-11-16', 'fileWay16', 5),
-(18, 17, 'tittle17', '85', '2021-11-17', 'fileWay17', 5),
-(19, 18, 'tittle18', '90', '2021-11-18', 'fileWay18', 5),
-(20, 19, 'tittle19', '95', '2021-11-19', 'fileWay19', 5),
+(1, 1, 'tittle1', 'texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext ', '2021-11-01', 'fileWay1', 3),
+(2, 1, 'tittle1', 'texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext ', '2021-11-01', 'fileWay1', 3),
+(3, 2, 'tittle2', 'texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext ', '2021-11-02', 'fileWay2', 4),
+(4, 3, 'tittle3', 'texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext ', '2021-11-03', 'fileWay3', 5),
+(5, 4, 'tittle4', 'texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext ', '2021-11-04', 'fileWay4', 2),
+(6, 5, 'tittle5', 'texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext ', '2021-11-05', 'fileWay5', 1),
+(7, 6, 'tittle6', 'texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext ', '2021-11-06', 'fileWay6', 3),
+(8, 7, 'tittle7', 'texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext ', '2021-11-07', 'fileWay7', 3),
+(9, 8, 'tittle8', 'texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext ', '2021-11-08', 'fileWay8', 4),
+(10, 9, 'tittle9', 'texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext ', '2021-11-09', 'fileWay9', 3),
+(11, 10, 'tittle10', 'texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext ', '2021-11-10', 'fileWay10', 3),
+(12, 11, 'tittle11', 'texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext ', '2021-11-11', 'fileWay11', 5),
+(13, 12, 'tittle12', 'texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext ', '2021-11-12', 'fileWay12', 1),
+(14, 13, 'tittle13', 'texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext ', '2021-11-13', 'fileWay13', 5),
+(15, 14, 'tittle14', 'texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext ', '2021-11-14', 'fileWay14', 4),
+(16, 15, 'tittle15', 'texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext ', '2021-11-15', 'fileWay15', 5),
+(17, 16, 'tittle16', 'texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext ', '2021-11-16', 'fileWay16', 1),
+(18, 17, 'tittle17', 'texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext ', '2021-11-17', 'fileWay17', 5),
+(19, 18, 'tittle18', 'texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext ', '2021-11-18', 'fileWay18', 3),
+(20, 19, 'tittle19', 'texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext texttext ', '2021-11-19', 'fileWay19', 5),
 (21, 20, 'tittle20', '100', '2021-11-20', 'fileWay20', 5);
 
 -- --------------------------------------------------------
@@ -314,10 +315,10 @@ INSERT INTO `tasks` (`id`, `id_from`, `title`, `text`, `deadline`, `file_way`, `
 --
 
 CREATE TABLE `users` (
-  `id` int NOT NULL,
-  `fio` varchar(256) CHARACTER SET utf32 COLLATE utf32_general_ci NOT NULL,
-  `email` varchar(32) CHARACTER SET utf32 COLLATE utf32_general_ci DEFAULT NULL,
-  `pass` varchar(64) CHARACTER SET utf32 COLLATE utf32_general_ci DEFAULT NULL
+  `id` int(11) NOT NULL,
+  `fio` varchar(256) NOT NULL,
+  `email` varchar(32) DEFAULT NULL,
+  `pass` varchar(64) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf32;
 
 --
@@ -376,7 +377,8 @@ INSERT INTO `users` (`id`, `fio`, `email`, `pass`) VALUES
 (49, 'Фомин Александр Валерьевич', NULL, NULL),
 (50, 'Цой Ден Хи', NULL, NULL),
 (51, 'Шавлюга Екатерина Владимировна', NULL, NULL),
-(52, 'Ильин Валерий Иванович ', NULL, NULL);
+(52, 'Ильин Валерий Иванович ', NULL, NULL),
+(53, 'test', 'test@t', 'test');
 
 -- --------------------------------------------------------
 
@@ -385,8 +387,8 @@ INSERT INTO `users` (`id`, `fio`, `email`, `pass`) VALUES
 --
 
 CREATE TABLE `workers` (
-  `id_task` int NOT NULL,
-  `id_user` int NOT NULL
+  `id_task` int(11) NOT NULL,
+  `id_user` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -481,37 +483,37 @@ ALTER TABLE `workers`
 -- AUTO_INCREMENT для таблицы `chat`
 --
 ALTER TABLE `chat`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT для таблицы `posts`
 --
 ALTER TABLE `posts`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
 -- AUTO_INCREMENT для таблицы `status`
 --
 ALTER TABLE `status`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `tasks`
 --
 ALTER TABLE `tasks`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=54;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
