@@ -347,7 +347,7 @@ CREATE TABLE `users` (
   `fio` varchar(256) NOT NULL,
   `email` varchar(32) DEFAULT NULL,
   `pass` varchar(64) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf32;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Дамп данных таблицы `users`

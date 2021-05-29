@@ -69,11 +69,14 @@ class OutTaskController extends Controller
 	{
 		if (!empty($_POST))
 		{
-			header("Location: /outTask");
-			return true;
+
+			// header("Location: /outTasks");
+			// return true;
 		}
 
-		$this->view->generate('task/createView.php');
+		$workers = $this->model->getWorkers();
+
+		$this->view->generate('task/createView.php', $workers);
 		return true;
 	}
 

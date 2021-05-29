@@ -70,6 +70,7 @@ td input {
 textarea {
     width: 100%;
     box-sizing: border-box;
+    resize: none;
     border: 1px solid black;
 }
 
@@ -80,20 +81,16 @@ input {
 input[type="text"],
 input[type="email"],
 input[type="password"] {
-    border: 1px;
+    border: 1px solid black;
     border-radius: 3px;
     padding: 6px 8px;
-}
-
-textarea {
-    resize: none;
 }
 
 fieldset {
     padding: 5px;
 }
 
-section:not(.auth):not(.createUser) {
+section:not(.auth){
     color: #222222;
     background-color: white;
     box-sizing: border-box;
@@ -530,11 +527,14 @@ section:not(.auth):not(.createUser) {
 .userList .add {
     margin: 10px 10px;
 }
-
-.createUser select {
-    width: 45%;
+.createUser textarea {
+    margin: 0 10%;
+    width: 80%;
 }
 
+    .createUser select {
+    width: 90%;
+}
 .comments {
     margin: 10px 0;
 }
