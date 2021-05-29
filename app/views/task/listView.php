@@ -36,7 +36,9 @@ $params = $params[1];
 				<div class="top flex-container-row flex-between">
 					<a href="/<?php echo $task['type']; ?>Task/<?php echo $task['id'] ?>" class="button flex-item flex-item-row-first">Подробнее</a>
 					<div class="flex-item flex-item-row-last">
-						<!-- <a href="#" class="button"><?php echo $task['OtherStatus'] ?></a> -->
+						<?php if (!empty($params['DoneStatus'])) : ?>
+							<a href="/chStatus/<?php echo $params['id'] ?>" class="button flex-item"><?php echo $params['DoneStatus'] ?></a>
+						<?php endif; ?>
 						<a href="#" class="button"><?php echo $task['DoneStatus'] ?></a>
 					</div>
 				</div>

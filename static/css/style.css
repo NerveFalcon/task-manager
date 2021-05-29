@@ -521,7 +521,6 @@ section:not(.auth):not(.createUser) {
 
 .task .desc {
     margin: 10px 15px;
-    width: 80%;
 }
 
 .userList {
