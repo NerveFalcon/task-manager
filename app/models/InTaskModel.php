@@ -47,7 +47,7 @@ class InTaskModel extends TaskModel
     }
     public function GetTask(int $id)
     {
-        $res = $this->db->query("SELECT tasks.*, status.ru as status, status.but_in as butIn, status.but_out as butOut users.fio as fio FROM (tasks INNER JOIN users ON  tasks.id_from = users.id) INNER JOIN status ON status.id = tasks.id_status AND tasks.id = $id");
+        $res = $this->db->query("SELECT tasks.*, status.ru as status, status.but_in as butIn, status.but_out as butOut, users.fio as fio FROM (tasks INNER JOIN users ON  tasks.id_from = users.id) INNER JOIN status ON status.id = tasks.id_status AND tasks.id = $id");
 
         return $this->Fetch($res)[0];
     }
