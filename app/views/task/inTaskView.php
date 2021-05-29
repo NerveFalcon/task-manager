@@ -2,6 +2,7 @@
 $twoWays = $params['status'] == "await" || $params['status'] == "performed";
 ?>
 <section class="inTask task">
+	<?php var_dump($params); ?>
 	<div class="top flex-container-row">
 		<h1 class="flex-item flex-item-row-first font32	"><?php echo $params['title'] ?></h1>
 		<span class="flex-item flex-item-row-last"><?php echo $params['status'] ?></span>

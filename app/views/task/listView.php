@@ -9,6 +9,7 @@ $params = $params[1];
 	</div>
 	<?php echo View::BuildFilter($pages[1]); ?>
 	<div class="list">
+		<?php var_dump($params) ?>
 		<?php foreach ($params as $task) : ?>
 			<?php ($task['diff'] > 30) ? $left = "Осталось больше месяца" : $left = "Осатлось " . $task['diff'] . " дней"; ?>
 			<div class="task">
@@ -36,8 +37,8 @@ $params = $params[1];
 				<div class="top flex-container-row flex-between">
 					<a href="/<?php echo $task['type']; ?>Task/<?php echo $task['id'] ?>" class="button flex-item flex-item-row-first">Подробнее</a>
 					<div class="flex-item flex-item-row-last">
-						<?php if (!empty($params['DoneStatus'])) : ?>
-							<a href="/chStatus/<?php echo $params['id'] ?>" class="button flex-item"><?php echo $params['DoneStatus'] ?></a>
+						<?php if (!empty($task['butIn'])) : ?>
+							<a href="/chStatus/<?php echo $task['id'] ?>" class="button flex-item"><?php echo $task['butIn'] ?></a>
 						<?php endif; ?>
 					</div>
 				</div>
