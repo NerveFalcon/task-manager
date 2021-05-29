@@ -27,7 +27,8 @@ class InTaskController extends Controller
 			$tasks[$key]['type'] = "in";
 			$tasks[$key]['OtherStatus'] = "На коррекцию";
 			$tasks[$key]['short_text'] = substr($task['text'], 0, 253) . "...";
-			$tasks[$key]['DoneStatus'] = "Принять";
+			$tasks[$key]['DoneStatus'] = "";
+			if (!empty($tasks[$key]['butIn'])) $tasks[$key]['DoneStatus'] = $tasks[$key]['butIn'];
 			$tasks[$key]['seen'] = rand(0, 1);
 			if (rand(0, 1))
 				$tasks[$key]['deadline'] = "2021-6-5";

@@ -15,7 +15,7 @@ class InTaskModel extends TaskModel
     public function GetListInTasks(int $page)
     {
         $showTasks = 4;
-        $res = $this->db->query("SELECT tasks.*, status.ru as status FROM (tasks INNER JOIN workers ON workers.id_user = $_SESSION[id] AND tasks.id = workers.id_task) INNER JOIN status ON status.id = tasks.id_status ORDER BY tasks.deadline LIMIT " . ($page - 1)*$showTasks . "," . $showTasks . "");
+        $res = $this->db->query("SELECT tasks.*, status.ru as statusRu, status.but_in as butIn, status.but_out as butOut FROM (tasks INNER JOIN workers ON workers.id_user = $_SESSION[id] AND tasks.id = workers.id_task) INNER JOIN status ON status.id = tasks.id_status ORDER BY tasks.deadline LIMIT " . ($page - 1)*$showTasks . "," . $showTasks . "");
 
         return $this->Fetch($res);
     }
