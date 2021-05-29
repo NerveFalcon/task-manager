@@ -9,7 +9,6 @@ $params = $params[1];
 	</div>
 	<?php echo View::BuildFilter($pages[1]); ?>
 	<div class="list">
-		<?php var_dump($params) ?>
 		<?php foreach ($params as $task) : ?>
 			<?php ($task['diff'] > 30) ? $left = "Осталось больше месяца" : $left = "Осатлось " . $task['diff'] . " дней"; ?>
 			<div class="task">
