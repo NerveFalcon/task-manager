@@ -25,21 +25,21 @@ class InTaskModel extends TaskModel
 
         return $res->fetch_all(1)[0]['count'];
         $input = array();
-        // for ($i=11; $i <= 20; $i++) { 
-        //     $input['id_from'] = $i;
-        //     $input['title'] = "tittle$i";
-        //     $input['text']  = 5*$i;
-        //     $input['deadline'] = "2021-11-$i";
-        //     $input['file_way'] = "fileWay$i";
-        //     $this->Insert("tasks", $input);
-        //     // $input[$i]['id_status'] = $i % 5 + 1;
-        // }
-        for ($i = 1; $i <= 200; $i++)
-        {
-            $input['id_task'] = rand(1,21);
-            $input['id'] = rand(1,22);
-            $this->Insert("workers", $input);
+        for ($i=1; $i <= 20; $i++) { 
+            // $input['id_from'] = $i;
+            // $input['title'] = "tittle$i";
+            $input['text']  = "texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext texttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttexttext";
+            // $input['deadline'] = "2021-11-$i";
+            // $input['file_way'] = "fileWay$i";
+            $this->UpdateOne("tasks", $input, $i);
+            // $input[$i]['id_status'] = $i % 5 + 1;
         }
+        // for ($i = 1; $i <= 200; $i++)
+        // {
+        //     $input['id_task'] = rand(1,21);
+        //     $input['id'] = rand(1,22);
+        //     $this->Insert("workers", $input);
+        // }
     }
     public function GetTask(int $id)
     {
