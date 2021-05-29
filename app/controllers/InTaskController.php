@@ -45,6 +45,16 @@ class InTaskController extends Controller
 		}
 		$task = $this->model->GetTask($id);
 		$task['comments'] = $this->model->GetComment($id);
+		$uri =  ROOT."\\static\\files\\" . $task['file_way'];
+		if(file_exists($uri))
+		$task['files'] = scandir($uri);
+
+		// while ($filename = readdir($catalog)) // перебираем наш каталог 
+		// {
+		// 	$filename = $uri."/".$filename;
+		// 	$task['files'][] = $filename;
+		// }
+		// closedir($catalog);
 
 		// $task = array();
 		// $task['id'] = $id;

@@ -9,9 +9,9 @@ $twoWays = $params['status'] == "await" || $params['status'] == "performed";
 	<span><?php echo $params['fio'] ?></span>
 	<div class="desc">
 		<p><?php echo $params['text'] ?></p>
-		<?php if (isset($params['file_way'])) : ?>
+		<?php if (isset($params['files'])) : ?>
 			<div class="files">
-				<?php foreach ($params['file_way'] as $file) : ?>
+				<?php foreach ($params['files'] as $file) : ?>
 					<a href="/static/files/<?php echo $file['url'] ?>" target="_blank"><?php echo $file['title'] ?></a>
 				<?php endforeach; ?>
 			</div>
@@ -20,6 +20,7 @@ $twoWays = $params['status'] == "await" || $params['status'] == "performed";
 	<div class="comments">
 		<h3>Комментарии</h3>
 		<br>
+		<?php if (!empty($params['comments'])) : ?>
 		<?php foreach ($params['comments'] as $comment) : ?>
 			<div class="comment">
 				<div class="flex-container-row flex-start">
@@ -28,6 +29,7 @@ $twoWays = $params['status'] == "await" || $params['status'] == "performed";
 				<p><?php echo $comment['text'] ?></p>
 			</div>
 		<?php endforeach; ?>
+		<?php endif; ?>
 		<form class="comment-form Tright" action="<?php if ($twoWays) ?>" method="post">
 			<textarea name="comment" rows="10"></textarea>
 			<div class="Tright">
