@@ -16,8 +16,6 @@ class InTaskModel extends TaskModel
     {
         $filter = "'" . str_replace('+', '\', \'', $filter) . "'";
         $res = $this->db->query("SELECT tasks.*, status.ru as status, status.but_in as butIn, status.but_out as butOut FROM (tasks INNER JOIN workers ON workers.id_user = $_SESSION[id] AND tasks.id = workers.id_task) INNER JOIN status ON status.id = tasks.id_status AND status.en IN ($filter) ORDER BY tasks.deadline LIMIT " . ($page - 1)*$showTasks . "," . $showTasks . "");
-		var_dump($filter);
-		var_dump($res);
 
         return $this->Fetch($res);
     }
