@@ -9,13 +9,12 @@ session_start();
 
 if (!isset($_SESSION['user']) && Route::GetUri() != "auth")
 {
-	if (isset($_COOKIE['c']))
-		$_SESSION['user'] = $_COOKIE['c'];
-	else
-		header('Location: /auth');
+	header('Location: /auth');
 }
-$_SESSION['id'] = 1;
-define('ISADMIN', true);
+if ($_SESSION['user'] == "test")
+	define('ISADMIN', true);
+else
+	define('ISADMIN', false);
 
 
 Route::start();

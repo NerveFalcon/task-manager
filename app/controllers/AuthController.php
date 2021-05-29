@@ -21,8 +21,9 @@ class AuthController extends Controller
 			$valid = $this->model->Validation($input['email'], $input['password']);
 			if($valid)
 			{
-				$_SESSION['user'] = $this->model->GetFIO($input['email']);
-				setcookie("c", $input['email'], time()+60*60*24);
+				$user = $this->model->Getuser($input['email']);
+				$_SESSION['user'] = $user['fio'];
+				$SESSION['id'] = $user['id'];
 				header("Location: /");
 				return true;
 			}
