@@ -4,10 +4,10 @@ function UpdateChat() {
         url: "",
         type: "POST",
         data: {},
-        success: function (res) {
+        success: function(res) {
             $("#chat").html(res);
         },
-        complete: function(res){
+        complete: function(res) {
             console.log(res);
         }
     });
@@ -37,17 +37,25 @@ function UpdateChat() {
 // });
 
 setInterval(UpdateChat, 1000);
+
 function selectPossible(elem) {
-    option = `<option name="selected" onclick="unselectPossible(this)" value="${elem.value}">${elem.text}</option>`;
+    option = `<option name="selected" selected onclick="unselectPossible(this)" value="${elem.value}">${elem.text}</option>`;
     document.getElementById("selected").innerHTML += option;
     Delete(elem)
 }
+
 function unselectPossible(elem) {
+    let possible = document.getElementById("possible");
     option = `<option onclick="selectPossible(this)" value="${elem.value}">${elem.text}</option>`;
-    option += document.getElementById("possible").innerHTML;
-    document.getElementById("possible").innerHTML = option;
+    option += possible.innerHTML;
+    possible.innerHTML = option;
     Delete(elem)
+
+    document.getElementById("selected").childNodes.forEach(element => {
+        element.selected = true;
+    });
 }
+
 function Delete(elem) {
     elem.remove();
 
