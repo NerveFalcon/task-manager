@@ -2,7 +2,7 @@
 return array(
     'hostname' => 'localhost',
     'username' => 'root',
-    'password' => 'usbw',
+    'password' => 'root',
     'database' => 'college',
     'port' => null,
     'socket' => null

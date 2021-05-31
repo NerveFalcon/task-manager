@@ -19,8 +19,7 @@ class AuthController extends Controller
 		{
 			$input = $this->model->InputHandlerRecursive($_POST);
 			$valid = $this->model->Validation($input['email'], $input['password']);
-			//if($valid)
-			if (true)
+			if($valid)
 			{
 				$user = $this->model->Getuser($input['email']);
 				$_SESSION['user'] = $user['fio'];
