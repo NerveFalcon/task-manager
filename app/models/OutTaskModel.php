@@ -14,7 +14,7 @@ class OutTaskModel extends TaskModel
     public function GetWorkers()
     {
         $this->ThisSqlConnect();
-        $workers_id = $this->db->query("select id_sub as id from rank where id_head = '$_SESSION[id]'");
+        $workers_id = $this->db->query("select id_sub as id from `rank` where id_head = '$_SESSION[id]'");
         $workers_id = $this->Fetch($workers_id);
         $ids = [];
         foreach ($workers_id as $key => $value) {

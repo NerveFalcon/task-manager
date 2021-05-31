@@ -25,6 +25,5 @@
 		created by NerveFalcon
 	</div>
 </body>
-<?php echo View::JsAlertOnLoad("Входит с test@test и pass: test")?>
 
 </html>

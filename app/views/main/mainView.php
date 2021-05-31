@@ -15,4 +15,5 @@
 			<input type="submit" value="Отправить">
 		</fieldset>
 	</form>
+	<script src="/static/js/chat.js"></script>
 </section>
