@@ -1,7 +1,7 @@
 <?php
 class AuthModel extends Model
 {
-	public function validation(string $email, string $password)
+	public function Validation(string $email, string $password)
 	{
 		$this->ThisSqlConnect();
 
